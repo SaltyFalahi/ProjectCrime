@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Reactive Alarm.unity
+    guid: 65d5dafd038af5949a014c894b1368d7
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: e7650954d799c2a478fe91fd03ebe486,
       type: 2}
