@@ -2,23 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
-    ButtonToPress BTP;
-
     public TextMeshProUGUI scoretxt;
+
+    ButtonToPress BTP;
+    ShotEmitter SE;
 
     int playerScore;
 
     void Start()
     {
         BTP = GetComponent<ButtonToPress>();
+        SE = GetComponent<ShotEmitter>();
     }
 
     void Update()
     {
-        scoretxt.text = playerScore.ToString("Score: " + "00");
+        scoretxt.text = playerScore.ToString("00");
     }
 
     public void PressButtonY(string buttonToPress)
@@ -29,7 +32,7 @@ public class ButtonManager : MonoBehaviour
         {
             playerScore++;
 
-            Debug.Log(buttonToPress+ "is correct!");
+            Debug.Log(buttonToPress + " is correct!");
         }
         else
         {
@@ -48,7 +51,7 @@ public class ButtonManager : MonoBehaviour
         {
             playerScore++;
 
-            Debug.Log("B is correct!");
+            Debug.Log(buttonToPress + " is correct!");
         }
         else
         {
@@ -67,7 +70,7 @@ public class ButtonManager : MonoBehaviour
         {
             playerScore++;
 
-            Debug.Log("A is correct!");
+            Debug.Log(buttonToPress + " is correct!");
         }
         else
         {
@@ -86,7 +89,7 @@ public class ButtonManager : MonoBehaviour
         {
             playerScore++;
 
-            Debug.Log("X is correct!");
+            Debug.Log(buttonToPress + " is correct!");
         }
         else
         {
@@ -97,5 +100,30 @@ public class ButtonManager : MonoBehaviour
 
         BTP.ResetTimers();
         BTP.DeactivateButtons();
+    }
+
+    public void AddShot()
+    {
+        playerScore++;
+        Debug.Log(playerScore);
+    }
+
+    public void ReduceShot()
+    {
+        playerScore--;
+    }
+
+    public void ConfirmAnswer()
+    {
+        if (playerScore == SE.SetShotCount())
+        {
+            SE.Win();
+        }
+        else
+        {
+            SE.Lose();
+        }
+
+        Debug.Log(SE.SetShotCount());
     }
 }
