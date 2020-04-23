@@ -14,6 +14,10 @@ public class ButtonPress : MonoBehaviour
 
     public player type;
 
+    public string button = null;
+
+    public bool myTurn;
+
     string fire1;
     string fire2;
     string fire3;
@@ -26,21 +30,28 @@ public class ButtonPress : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown(fire1))
+        if (myTurn)
         {
-
-        }
-        else if (Input.GetButtonDown(fire2))
-        {
-
-        }
-        else if (Input.GetButtonDown(fire3))
-        {
-
-        }
-        else if (Input.GetButtonDown(fire4))
-        {
-
+            if (Input.GetButtonDown(fire1))
+            {
+                button = "Square";
+                myTurn = false;
+            }
+            else if (Input.GetButtonDown(fire2))
+            {
+                button = "Cross";
+                myTurn = false;
+            }
+            else if (Input.GetButtonDown(fire3))
+            {
+                button = "Circle";
+                myTurn = false;
+            }
+            else if (Input.GetButtonDown(fire4))
+            {
+                button = "Triangle";
+                myTurn = false;
+            }
         }
     }
 

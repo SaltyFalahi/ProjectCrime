@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class YoHoAhoyRope : MonoBehaviour
+public class Timer : MonoBehaviour
 {
-    public List<ButtonPress> buttons;
-    public List<int> chosen;
-
     public float timer;
 
     float countdown;
@@ -20,14 +17,7 @@ public class YoHoAhoyRope : MonoBehaviour
     {
         if (countdown <= 0)
         {
-
-        }
-        else
-        {
-            for (int i = 1; i < buttons.Count; i++)
-            {
-                
-            }
+            Debug.Log("Red won");
         }
     }
 }
