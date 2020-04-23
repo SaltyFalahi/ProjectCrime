@@ -26,7 +26,7 @@ public class YoHoAhoyRope : MonoBehaviour
         {
             for (int i = 1; i < buttons.Count; i++)
             {
-                buttons[i].GetButton();
+                
             }
         }
     }

@@ -68,25 +68,25 @@ public class JoystickMovement : MonoBehaviour
             case player.P1:
                 movementH = "P1Horizontal";
                 movementV = "P1Vertical";
-                fire = "P1Fire";
+                fire = "P1Fire1";
                 break;
 
             case player.P2:
                 movementH = "P2Horizontal";
                 movementV = "P2Vertical";
-                fire = "P2Fire";
+                fire = "P2Fire1";
                 break;
 
             case player.P3:
                 movementH = "P3Horizontal";
                 movementV = "P3Vertical";
-                fire = "P3Fire";
+                fire = "P3Fire1";
                 break;
 
             case player.P4:
                 movementH = "P4Horizontal";
                 movementV = "P4Vertical";
-                fire = "P4Fire";
+                fire = "P4Fire1";
                 break;
         }
     }
