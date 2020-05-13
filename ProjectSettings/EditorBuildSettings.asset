@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/Hot Potato.unity
+    guid: 0dd551f94b6e7094b9db5ef72d37e957
+  - enabled: 1
+    path: Assets/Scenes/Cops And Robbers.unity
+    guid: ea698d7adf301834ab858a2d53cf481d
   m_configObjects: {}
