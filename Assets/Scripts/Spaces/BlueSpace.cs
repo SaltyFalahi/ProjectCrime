@@ -10,9 +10,11 @@ public class BlueSpace : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //If player walks into the space
         if (other.CompareTag("Player"))
         {
             player = other.GetComponent<PlayerInfo>();
+            //Gain bucks
             player.bucks += count;
         }
     }

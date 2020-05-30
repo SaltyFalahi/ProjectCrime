@@ -10,6 +10,7 @@ public class BackSpace : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //If player walks into the space
         if (other.CompareTag("Player"))
         {
             player = other.GetComponent<PlayerInfo>();

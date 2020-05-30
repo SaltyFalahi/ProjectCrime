@@ -2,11 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DashSpace : MonoBehaviour
+public class EventSpace : MonoBehaviour
 {
     public int count;
 
     PlayerInfo player;
+
+    GameEvent gEvent;
+
+    private void Start()
+    {
+        //Stores which event is used for this space
+        gEvent = GetComponent<GameEvent>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,7 +22,9 @@ public class DashSpace : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             player = other.GetComponent<PlayerInfo>();
-            //Roll 1d4 and move forward
+            
+            //Play Event
+            gEvent.DoEvent(player);
         }
     }
 }

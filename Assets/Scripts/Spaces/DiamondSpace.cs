@@ -52,9 +52,11 @@ public class DiamondSpace : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //If player walks into the space
         if (other.CompareTag("Player"))
         {
             player = other.GetComponent<PlayerInfo>();
+            //Enable purchase of Diamonds
             panel.SetActive(true);
         }
     }

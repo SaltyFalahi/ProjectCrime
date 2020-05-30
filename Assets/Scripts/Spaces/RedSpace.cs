@@ -10,9 +10,11 @@ public class RedSpace : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //If player walks into the space
         if (other.CompareTag("Player"))
         {
             player = other.GetComponent<PlayerInfo>();
+            //Lose bucks
             player.bucks -= count;
         }
     }
