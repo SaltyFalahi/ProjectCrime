@@ -8,8 +8,8 @@ public class PathFollowing : MonoBehaviour
 
     public GameObject player;
 
-    public float speed = 2.5f;
-    public float reachDist = 1;
+    public float speed;
+    public float reachDist;
 
     List<Transform> reversePoints = new List<Transform>();
 
@@ -17,6 +17,7 @@ public class PathFollowing : MonoBehaviour
 
     int index = 0;
     int reverseIndex = 0;
+    int numberToMove;
 
     void Start()
     {
@@ -27,7 +28,8 @@ public class PathFollowing : MonoBehaviour
     {
         if (diceRoller.diceRolled)
         {
-            MovePlayer(diceRoller.numberRolled);
+            numberToMove = diceRoller.numberRolled;
+            MovePlayer(numberToMove);
         }
     }
 
@@ -35,17 +37,23 @@ public class PathFollowing : MonoBehaviour
     {
         float dist = Vector3.Distance(tilePoints[index].position, transform.position);
 
-        if (diceRoller.isMoonwalk)
+        if (!diceRoller.isMoonwalk)
         {
             if (spacesToMove > 0)
             {
+                speed = 5;
                 transform.position = Vector3.MoveTowards(transform.position, tilePoints[index].position, Time.deltaTime * speed);
+            }
+            else
+            {
+                speed = 0;
+                diceRoller.diceRolled = false;
             }
 
             if (dist <= reachDist)
             {
                 index++;
-                spacesToMove--;
+                diceRoller.numberRolled--;
                 reversePoints.Add(tilePoints[index]);
             }
         }

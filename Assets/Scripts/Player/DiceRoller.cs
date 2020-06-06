@@ -53,6 +53,7 @@ public class DiceRoller : MonoBehaviour
         isMoonwalk = true;
         RollD6();
     }
+
     public void RollVan()
     {
         isVan = true;

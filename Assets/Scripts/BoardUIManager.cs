@@ -18,7 +18,29 @@ public class BoardUIManager : MonoBehaviour
     public GameObject mapSelectionPanel;
     public GameObject sidemapControlPanel;
 
-    public float speed;
+    
+
+    float speed;
+
+    bool camIsPlayer = true;
+    bool camIsSide = false;
+    bool camIsTop = false;
+
+    void Update()
+    {
+        if (camIsPlayer)
+        {
+            ReturnToPlayerCamMode();
+        }
+        else if (camIsSide)
+        {
+            ChangeToSideCamMode();
+        }
+        else if (camIsTop)
+        {
+            ChangeToTopCamMode();
+        }
+    }
 
     public void OpenDicePanel()
     {
@@ -70,33 +92,73 @@ public class BoardUIManager : MonoBehaviour
 
     public void ReturnToPlayerCamMode()
     {
-        boardCam.transform.position = new Vector3(boardPlayerCamPoint.transform.position.x,
-            boardPlayerCamPoint.transform.position.y, boardPlayerCamPoint.transform.position.z);
+        camIsPlayer = true;
+        camIsSide = false;
+        camIsTop = false;
+
+        if (boardCam.transform.position != boardPlayerCamPoint.transform.position || camIsPlayer)
+        {
+            speed = 0.05f;
+            boardCam.transform.position = Vector3.Lerp(boardCam.transform.position, boardPlayerCamPoint.transform.position, speed);
+        }
+        else
+        {
+            camIsPlayer = false;
+            speed = 0;
+        }
+
         boardCam.transform.eulerAngles = new Vector3(boardPlayerCamPoint.transform.eulerAngles.x,
             boardPlayerCamPoint.transform.eulerAngles.y, boardPlayerCamPoint.transform.eulerAngles.z);
     }
 
     public void ChangeToSideCamMode()
     {
-        boardCam.transform.position = new Vector3(boardSideMapCamPoint.transform.position.x,
-            boardSideMapCamPoint.transform.position.y, boardSideMapCamPoint.transform.position.z);
+        camIsPlayer = false;
+        camIsSide = true;
+        camIsTop = false;
+
+        if (boardCam.transform.position != boardSideMapCamPoint.transform.position)
+        {
+            speed = 0.005f;
+            boardCam.transform.position = Vector3.Lerp(boardCam.transform.position, boardSideMapCamPoint.transform.position, speed);
+        }
+        else
+        {
+            camIsSide = false;
+            speed = 0;
+        }
+
         boardCam.transform.eulerAngles = new Vector3(boardSideMapCamPoint.transform.eulerAngles.x,
             boardSideMapCamPoint.transform.eulerAngles.y, boardSideMapCamPoint.transform.eulerAngles.z);
 
-        if (!sidemapControlPanel.activeInHierarchy)
-        {
-            mainPanel.SetActive(false);
-            dicePanel.SetActive(false);
-            itemsPanel.SetActive(false);
-            mapSelectionPanel.SetActive(false);
-            sidemapControlPanel.SetActive(true);
-        }
+        //if (!sidemapControlPanel.activeInHierarchy)
+        //{
+        //    mainPanel.SetActive(false);
+        //    dicePanel.SetActive(false);
+        //    itemsPanel.SetActive(false);
+        //    mapSelectionPanel.SetActive(false);
+        //    sidemapControlPanel.SetActive(true);
+        //}
+        //Save for later fucnitonalities - no touchy
     }
 
     public void ChangeToTopCamMode()
     {
-        boardCam.transform.position = new Vector3(boardTopMapCamPoint.transform.position.x,
-            boardTopMapCamPoint.transform.position.y, boardTopMapCamPoint.transform.position.z);
+        camIsPlayer = false;
+        camIsSide = false;
+        camIsTop = true;
+
+        if (boardCam.transform.position != boardTopMapCamPoint.transform.position)
+        {
+            speed = 0.005f;
+            boardCam.transform.position = Vector3.Lerp(boardCam.transform.position, boardTopMapCamPoint.transform.position, speed);
+        }
+        else
+        {
+            camIsTop = false;
+            speed = 0;
+        }
+
         boardCam.transform.eulerAngles = new Vector3(boardTopMapCamPoint.transform.eulerAngles.x,
             boardTopMapCamPoint.transform.eulerAngles.y, boardTopMapCamPoint.transform.eulerAngles.z);
     }
