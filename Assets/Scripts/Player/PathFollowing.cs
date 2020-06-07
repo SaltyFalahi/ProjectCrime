@@ -41,12 +41,10 @@ public class PathFollowing : MonoBehaviour
         {
             if (spacesToMove > 0)
             {
-                speed = 5;
                 transform.position = Vector3.MoveTowards(transform.position, tilePoints[index].position, Time.deltaTime * speed);
             }
             else
             {
-                speed = 0;
                 diceRoller.diceRolled = false;
             }
 
@@ -61,7 +59,14 @@ public class PathFollowing : MonoBehaviour
         {
             if (spacesToMove < 0)
             {
+                Debug.Log("Moonwalking");
                 transform.position = Vector3.MoveTowards(transform.position, reversePoints[reverseIndex].position, Time.deltaTime * speed);
+            }
+            else if (spacesToMove >= 0)
+            {
+                Debug.Log("No longer Moonwalking");
+                diceRoller.isMoonwalk = false;
+                diceRoller.diceRolled = false;
             }
 
             if (dist <= reachDist)
@@ -73,7 +78,7 @@ public class PathFollowing : MonoBehaviour
 
                 reverseIndex++;
                 index--;
-                spacesToMove++;
+                diceRoller.numberRolled++;
             }
 
             if (reverseIndex > reversePoints.Count)

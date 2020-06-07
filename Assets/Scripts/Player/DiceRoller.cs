@@ -7,6 +7,7 @@ public class DiceRoller : MonoBehaviour
     public int numberRolled;
 
     public bool diceRolled = false;
+    public bool isNormalRoll = false;
     public bool isMoonwalk = false;
     public bool isVan = false;
 
@@ -25,13 +26,18 @@ public class DiceRoller : MonoBehaviour
         {
             numberRolled = Random.Range(1, 7) * -1;
             Debug.Log("Moonwalk " + numberRolled);
-            isMoonwalk = false;
         }
         else
         {
             numberRolled = Random.Range(1, 7);
             Debug.Log("D6: " + numberRolled);
-        }             
+        }
+    }
+
+    public void RollNormalMovement()
+    {
+        isNormalRoll = true;
+        RollD6();
     }
 
     public void RollSneakers()
