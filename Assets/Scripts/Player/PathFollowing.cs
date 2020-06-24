@@ -14,22 +14,22 @@ public class PathFollowing : MonoBehaviour
     List<Transform> reversePoints = new List<Transform>();
 
     DiceRoller diceRoller;
+    PlayerAbilities playerAbilities;
 
     int index = 0;
     int reverseIndex = 0;
-    int numberToMove;
 
     void Start()
     {
         diceRoller = GameObject.FindGameObjectWithTag("DiceObj").GetComponent<DiceRoller>();
+        playerAbilities = GetComponent<PlayerAbilities>();
     }
 
     void Update()
     {
         if (diceRoller.diceRolled)
         {
-            numberToMove = diceRoller.numberRolled;
-            MovePlayer(numberToMove);
+            MovePlayer(diceRoller.numberRolled);
         }
     }
 
@@ -37,7 +37,7 @@ public class PathFollowing : MonoBehaviour
     {
         float dist = Vector3.Distance(tilePoints[index].position, transform.position);
 
-        if (!diceRoller.isMoonwalk)
+        if (!playerAbilities.isMoonwalk)
         {
             if (spacesToMove > 0)
             {
@@ -46,6 +46,7 @@ public class PathFollowing : MonoBehaviour
             else
             {
                 diceRoller.diceRolled = false;
+                playerAbilities.getawayVanIsActive = false;
             }
 
             if (dist <= reachDist)
@@ -65,7 +66,7 @@ public class PathFollowing : MonoBehaviour
             else if (spacesToMove >= 0)
             {
                 Debug.Log("No longer Moonwalking");
-                diceRoller.isMoonwalk = false;
+                playerAbilities.isMoonwalk = false;
                 diceRoller.diceRolled = false;
             }
 

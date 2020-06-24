@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class DiceRoller : MonoBehaviour
 {
+    public List<GameObject> players;
+
     public int numberRolled;
 
     public bool diceRolled = false;
-    public bool isNormalRoll = false;
-    public bool isMoonwalk = false;
-    public bool isVan = false;
+
+    PlayerAbilities playerAbilities;
+
+    void Start()
+    {
+        playerAbilities = players[0].GetComponent<PlayerAbilities>();
+    }
 
     public void RollD4()
     {
@@ -22,7 +28,7 @@ public class DiceRoller : MonoBehaviour
     {
         diceRolled = true;
         
-        if (isMoonwalk)
+        if (playerAbilities.isMoonwalk)
         {
             numberRolled = Random.Range(1, 7) * -1;
             Debug.Log("Moonwalk " + numberRolled);
@@ -32,37 +38,5 @@ public class DiceRoller : MonoBehaviour
             numberRolled = Random.Range(1, 7);
             Debug.Log("D6: " + numberRolled);
         }
-    }
-
-    public void RollNormalMovement()
-    {
-        isNormalRoll = true;
-        RollD6();
-    }
-
-    public void RollSneakers()
-    {
-        diceRolled = true;
-        numberRolled = Random.Range(1, 7) + Random.Range(1, 7);
-        Debug.Log("Sneakers: " + numberRolled);
-    }
-
-    public void RollRocket()
-    {
-        diceRolled = true;
-        numberRolled = Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7);
-        Debug.Log("Rocket Shoes: " + numberRolled);
-    }
-
-    public void RollMoonwalk()
-    {
-        isMoonwalk = true;
-        RollD6();
-    }
-
-    public void RollVan()
-    {
-        isVan = true;
-        RollD6();
     }
 }

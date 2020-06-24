@@ -130,16 +130,6 @@ public class BoardUIManager : MonoBehaviour
 
         boardCam.transform.eulerAngles = new Vector3(boardSideMapCamPoint.transform.eulerAngles.x,
             boardSideMapCamPoint.transform.eulerAngles.y, boardSideMapCamPoint.transform.eulerAngles.z);
-
-        //if (!sidemapControlPanel.activeInHierarchy)
-        //{
-        //    mainPanel.SetActive(false);
-        //    dicePanel.SetActive(false);
-        //    itemsPanel.SetActive(false);
-        //    mapSelectionPanel.SetActive(false);
-        //    sidemapControlPanel.SetActive(true);
-        //}
-        //Save for later fucnitonalities - no touchy
     }
 
     public void ChangeToTopCamMode()

@@ -7,6 +7,9 @@ TagManager:
   - T
   - N
   - DiceObj
+  - GetawayVan
+  - Diamond
+  - ItemSpace
   layers:
   - Default
   - TransparentFX
