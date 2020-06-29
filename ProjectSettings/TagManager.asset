@@ -10,6 +10,7 @@ TagManager:
   - GetawayVan
   - Diamond
   - ItemSpace
+  - PlayerList
   layers:
   - Default
   - TransparentFX

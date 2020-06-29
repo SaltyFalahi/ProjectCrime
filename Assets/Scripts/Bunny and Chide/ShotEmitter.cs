@@ -13,15 +13,22 @@ public class ShotEmitter : MonoBehaviour
     public GameObject winText;
     public GameObject loseText;
 
-    float countdown = 5; //will be used for button activation and deactivation
+    IEnumerator coroutine;
 
-    int shots;
+    float countdown = 5; //will be used for button activation and deactivation
+    float shotTimer;
+
+    int shotsToFire;
+    int shotsFired;
 
     // Start is called before the first frame update
     void Start()
     {
-        shots = Random.Range(5, 10);
-        gunshotText.text = shots.ToString("Shots Fired: " + "00");
+        shotTimer = Random.Range(1, 6);
+        shotsToFire = Random.Range(5, 11);
+        gunshotText.text = shotsToFire.ToString("Shots Fired: " + "00");
+
+        coroutine = StartShots(shotTimer);
     }
 
     // Update is called once per frame
@@ -30,10 +37,20 @@ public class ShotEmitter : MonoBehaviour
         
     }
 
+    IEnumerator StartShots(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        //if ()
+        //{
+            
+        //}
+    }
+
     public int SetShotCount()
     {
-        Debug.Log(shots);
-        return shots;
+        Debug.Log(shotsToFire);
+        return shotsToFire;
     }
 
     public void Win()

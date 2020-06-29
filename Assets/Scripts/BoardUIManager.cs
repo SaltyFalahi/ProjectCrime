@@ -15,10 +15,9 @@ public class BoardUIManager : MonoBehaviour
     public GameObject mainPanel;
     public GameObject dicePanel;
     public GameObject itemsPanel;
+    public GameObject playerSelectPanel;    
     public GameObject mapSelectionPanel;
     public GameObject sidemapControlPanel;
-
-    
 
     float speed;
 
@@ -49,6 +48,7 @@ public class BoardUIManager : MonoBehaviour
             mainPanel.SetActive(false);
             dicePanel.SetActive(true);
             itemsPanel.SetActive(false);
+            playerSelectPanel.SetActive(false);
             mapSelectionPanel.SetActive(false);
             sidemapControlPanel.SetActive(false);
         }
@@ -61,6 +61,20 @@ public class BoardUIManager : MonoBehaviour
             mainPanel.SetActive(false);
             dicePanel.SetActive(false);
             itemsPanel.SetActive(true);
+            playerSelectPanel.SetActive(false);
+            mapSelectionPanel.SetActive(false);
+            sidemapControlPanel.SetActive(false);
+        }
+    }
+
+    public void OpenPlayerSelectPanel()
+    {
+        if (!playerSelectPanel.activeInHierarchy)
+        {
+            mainPanel.SetActive(false);
+            dicePanel.SetActive(false);
+            itemsPanel.SetActive(false);
+            playerSelectPanel.SetActive(true);
             mapSelectionPanel.SetActive(false);
             sidemapControlPanel.SetActive(false);
         }
@@ -73,6 +87,7 @@ public class BoardUIManager : MonoBehaviour
             mainPanel.SetActive(true);
             dicePanel.SetActive(false);
             itemsPanel.SetActive(false);
+            playerSelectPanel.SetActive(false);
             mapSelectionPanel.SetActive(false);
             sidemapControlPanel.SetActive(false);
         }
@@ -85,6 +100,7 @@ public class BoardUIManager : MonoBehaviour
             mainPanel.SetActive(false);
             dicePanel.SetActive(false);
             itemsPanel.SetActive(false);
+            playerSelectPanel.SetActive(false);
             mapSelectionPanel.SetActive(true);
             sidemapControlPanel.SetActive(false);
         }

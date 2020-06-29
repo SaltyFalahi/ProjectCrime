@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class DiceRoller : MonoBehaviour
 {
-    public List<GameObject> players;
-
     public int numberRolled;
 
     public bool diceRolled = false;
@@ -14,14 +12,16 @@ public class DiceRoller : MonoBehaviour
 
     void Start()
     {
-        playerAbilities = players[0].GetComponent<PlayerAbilities>();
+        playerAbilities = GetComponent<PlayerAbilities>();
     }
 
-    public void RollD4()
+    void RollD4()
     {
         diceRolled = true;
         numberRolled = Random.Range(1, 5);
         Debug.Log("D4: " + numberRolled);
+        playerAbilities.target.GetComponent<PlayerAbilities>().ironBallIsActive = false;
+
     }
 
     public void RollD6()
@@ -32,6 +32,10 @@ public class DiceRoller : MonoBehaviour
         {
             numberRolled = Random.Range(1, 7) * -1;
             Debug.Log("Moonwalk " + numberRolled);
+        }
+        else if (playerAbilities.ironBallIsActive)
+        {
+            RollD4();
         }
         else
         {

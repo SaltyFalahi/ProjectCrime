@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PlayerInfo : MonoBehaviour
 {
+    public List<GameObject> playerList = new List<GameObject>();
+    List<GameObject> playerWorldList;
+
     public int bucks;
     public int diamonds;
 
     public int itemsLeft = 0;
-    public int minItems = 1;
 
     public int sneakers;
     public int rocketShoes;
@@ -21,6 +23,19 @@ public class PlayerInfo : MonoBehaviour
     public int ironBall;
 
     int maxItems = 5;
+
+    void Start()
+    {
+        playerWorldList = GameObject.FindGameObjectWithTag("PlayerList").GetComponent<PlayerList>().players;
+
+        for (int i = 0; i < playerWorldList.Count; i++)
+        {
+            if (playerWorldList[i] != gameObject)
+            {
+                playerList.Add(playerWorldList[i]);
+            }
+        }
+    }
 
     void Update()
     {
