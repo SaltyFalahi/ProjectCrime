@@ -1,13 +1,18 @@
-﻿using System.Collections;
+﻿using SocketIO;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Swipe : MonoBehaviour
 {
+    public SocketIOComponent soc;
+
     public float deadzone;
 
     Vector2 swipeDelta;
     Vector2 startTouch;
+
+    string swipe;
 
     bool tap;
     bool swipeLeft;
@@ -81,11 +86,13 @@ public class Swipe : MonoBehaviour
                 {
                     swipeLeft = true;
                     //Send Message Left to Server
+                    swipe = "Left";
                 }
                 else
                 {
                     swipeRight = true;
                     //Send Message Right to Server
+                    swipe = "Right";
                 }
             }
             else
@@ -94,13 +101,20 @@ public class Swipe : MonoBehaviour
                 {
                     swipeDown = true;
                     //Send Message Down to Server
+                    swipe = "Down";
                 }
                 else
                 {
                     swipeUp = true;
                     //Send Message Up to Server
+                    swipe = "Up";
                 }
             }
+
+            JSONObject jdata = new JSONObject();
+            jdata.AddField("Swipe Registered", swipe);
+
+            soc.Emit("Input Swipe", jdata);
 
             ResetSwipe();
         }
