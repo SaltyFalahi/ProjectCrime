@@ -7,55 +7,40 @@ public class DiceRoller : MonoBehaviour
     public int numberRolled;
 
     public bool diceRolled = false;
-    public bool isMoonwalk = false;
-    public bool isVan = false;
 
-    public void RollD4()
+    PlayerAbilities playerAbilities;
+
+    void Start()
+    {
+        playerAbilities = GetComponent<PlayerAbilities>();
+    }
+
+    void RollD4()
     {
         diceRolled = true;
         numberRolled = Random.Range(1, 5);
         Debug.Log("D4: " + numberRolled);
+        playerAbilities.target.GetComponent<PlayerAbilities>().ironBallIsActive = false;
+
     }
 
     public void RollD6()
     {
         diceRolled = true;
         
-        if (isMoonwalk)
+        if (playerAbilities.isMoonwalk)
         {
             numberRolled = Random.Range(1, 7) * -1;
             Debug.Log("Moonwalk " + numberRolled);
-            isMoonwalk = false;
+        }
+        else if (playerAbilities.ironBallIsActive)
+        {
+            RollD4();
         }
         else
         {
             numberRolled = Random.Range(1, 7);
             Debug.Log("D6: " + numberRolled);
-        }             
-    }
-
-    public void RollSneakers()
-    {
-        diceRolled = true;
-        numberRolled = Random.Range(1, 7) + Random.Range(1, 7);
-        Debug.Log("Sneakers: " + numberRolled);
-    }
-
-    public void RollRocket()
-    {
-        diceRolled = true;
-        numberRolled = Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7);
-        Debug.Log("Rocket Shoes: " + numberRolled);
-    }
-
-    public void RollMoonwalk()
-    {
-        isMoonwalk = true;
-        RollD6();
-    }
-    public void RollVan()
-    {
-        isVan = true;
-        RollD6();
+        }
     }
 }

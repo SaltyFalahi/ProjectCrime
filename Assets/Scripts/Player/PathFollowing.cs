@@ -8,12 +8,13 @@ public class PathFollowing : MonoBehaviour
 
     public GameObject player;
 
-    public float speed = 2.5f;
-    public float reachDist = 1;
+    public float speed;
+    public float reachDist;
 
-    List<Transform> reversePoints = new List<Transform>();
+    public List<Transform> reversePoints = new List<Transform>();
 
     DiceRoller diceRoller;
+    PlayerAbilities playerAbilities;
 
     int index = 0;
     int reverseIndex = 0;
@@ -21,11 +22,12 @@ public class PathFollowing : MonoBehaviour
     void Start()
     {
         diceRoller = GameObject.FindGameObjectWithTag("DiceObj").GetComponent<DiceRoller>();
+        playerAbilities = GetComponent<PlayerAbilities>();
     }
 
     void Update()
     {
-        if (diceRoller.diceRolled)
+        if (diceRoller.diceRolled && !playerAbilities.moneyMagnetIsActive)
         {
             MovePlayer(diceRoller.numberRolled);
         }
@@ -35,37 +37,57 @@ public class PathFollowing : MonoBehaviour
     {
         float dist = Vector3.Distance(tilePoints[index].position, transform.position);
 
-        if (diceRoller.isMoonwalk)
+        if (!playerAbilities.isMoonwalk)
         {
             if (spacesToMove > 0)
             {
                 transform.position = Vector3.MoveTowards(transform.position, tilePoints[index].position, Time.deltaTime * speed);
             }
+            else
+            {
+                diceRoller.diceRolled = false;
+                playerAbilities.getawayVanIsActive = false;
+            }
 
             if (dist <= reachDist)
             {
                 index++;
-                spacesToMove--;
+                diceRoller.numberRolled--;
                 reversePoints.Add(tilePoints[index]);
+
+                if (reversePoints.Count > 6)
+                {
+                    reversePoints.RemoveAt(0);
+                }
             }
         }
         else
         {
             if (spacesToMove < 0)
             {
+                Debug.Log("Moonwalking "+ spacesToMove);
+                reverseIndex = (spacesToMove * -1) - 1;
+                Debug.Log("REEEEE " + reverseIndex);
                 transform.position = Vector3.MoveTowards(transform.position, reversePoints[reverseIndex].position, Time.deltaTime * speed);
+            }
+            else if (spacesToMove >= 0)
+            {
+                Debug.Log("No longer Moonwalking");
+                playerAbilities.isMoonwalk = false;
+                diceRoller.diceRolled = false;
             }
 
             if (dist <= reachDist)
             {
                 if (reversePoints.Count > 6)
                 {
-                    reversePoints.RemoveAt(7);
+                    reversePoints.RemoveAt(0);
                 }
 
-                reverseIndex++;
+                reverseIndex--;
                 index--;
-                spacesToMove++;
+                Debug.Log(index);
+                diceRoller.numberRolled++;
             }
 
             if (reverseIndex > reversePoints.Count)
