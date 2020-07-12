@@ -9,9 +9,10 @@ public class ShotEmitter : MonoBehaviour
     public Button AddBtn;
     public Button ReduceBtn;
 
-    public TextMeshProUGUI gunshotText;
     public GameObject winText;
     public GameObject loseText;
+
+    AudioSource shotAudio;
 
     IEnumerator coroutine;
 
@@ -21,51 +22,47 @@ public class ShotEmitter : MonoBehaviour
     int shotsToFire;
     int shotsFired;
 
-    // Start is called before the first frame update
     void Start()
     {
+        AddBtn.interactable = false;
+        ReduceBtn.interactable = false;
+
+        shotAudio = GetComponent<AudioSource>();
+
         shotTimer = Random.Range(1, 6);
+
         shotsToFire = Random.Range(5, 11);
-        gunshotText.text = shotsToFire.ToString("Shots Fired: " + "00");
+        shotsFired = shotsToFire;
+        Debug.Log(shotsFired);
 
         coroutine = StartShots(shotTimer);
+
+        StartCoroutine(coroutine);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (shotsToFire <= 0)
+        {
+            AddBtn.interactable = true;
+            ReduceBtn.interactable = true;
+        }
     }
 
     IEnumerator StartShots(float time)
     {
-        yield return new WaitForSeconds(time);
+        while (shotsToFire > 0)
+        {
+            yield return new WaitForSeconds(time);
 
-        //if ()
-        //{
-            
-        //}
+            shotAudio.Play();
+            shotsToFire--;
+        }
     }
 
     public int SetShotCount()
     {
-        Debug.Log(shotsToFire);
-        return shotsToFire;
-    }
-
-    public void Win()
-    {
-        if (!winText.activeInHierarchy)
-        {
-            winText.SetActive(true);
-        }
-    }
-
-    public void Lose()
-    {
-        if (!loseText.activeInHierarchy)
-        {
-            loseText.SetActive(true);
-        }
+        Debug.Log(shotsFired);
+        return shotsFired;
     }
 }

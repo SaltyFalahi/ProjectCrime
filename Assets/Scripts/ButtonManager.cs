@@ -105,7 +105,6 @@ public class ButtonManager : MonoBehaviour
     public void AddShot()
     {
         playerScore++;
-        Debug.Log(playerScore);
     }
 
     public void ReduceShot()
@@ -117,13 +116,11 @@ public class ButtonManager : MonoBehaviour
     {
         if (playerScore == SE.SetShotCount())
         {
-            SE.Win();
+            SE.winText.SetActive(true);
         }
         else
         {
-            SE.Lose();
+            SE.loseText.SetActive(true);
         }
-
-        Debug.Log(SE.SetShotCount());
     }
 }
