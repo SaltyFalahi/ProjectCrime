@@ -32,10 +32,14 @@ public class ButtonManager : MonoBehaviour
         {
             playerScore++;
 
+            BTP.roundCounter++;
+
             Debug.Log(buttonToPress + " is correct!");
         }
         else
         {
+            BTP.roundCounter++;
+
             Debug.Log("Wrong one, bucko!");
         }
 
@@ -51,10 +55,14 @@ public class ButtonManager : MonoBehaviour
         {
             playerScore++;
 
+            BTP.roundCounter++;
+
             Debug.Log(buttonToPress + " is correct!");
         }
         else
         {
+            BTP.roundCounter++;
+
             Debug.Log("Wrong one, bucko!");
         }
 
@@ -70,10 +78,14 @@ public class ButtonManager : MonoBehaviour
         {
             playerScore++;
 
+            BTP.roundCounter++;
+
             Debug.Log(buttonToPress + " is correct!");
         }
         else
         {
+            BTP.roundCounter++;
+
             Debug.Log("Wrong one, bucko!");
         }
 
@@ -89,12 +101,14 @@ public class ButtonManager : MonoBehaviour
         {
             playerScore++;
 
+            BTP.roundCounter++;
+
             Debug.Log(buttonToPress + " is correct!");
         }
         else
         {
-            playerScore++;
-
+            BTP.roundCounter++;
+             
             Debug.Log("Wrong one, bucko!");
         }
 

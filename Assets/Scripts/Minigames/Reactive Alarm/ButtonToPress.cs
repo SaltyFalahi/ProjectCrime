@@ -5,8 +5,11 @@ using TMPro;
 
 public class ButtonToPress : MonoBehaviour
 {
-    public GameObject ButtonObj;
-    public TextMeshProUGUI ButtonText;
+    public GameObject buttonObj;
+    public TextMeshProUGUI buttonText;
+    public TextMeshProUGUI roundText;
+
+    public int roundCounter;
 
     public string buttonPicked;
 
@@ -27,18 +30,19 @@ public class ButtonToPress : MonoBehaviour
         if (countdown <= 5 && coolDown >= 10)
         {
             countdown -= Time.deltaTime;
-            ButtonText.text = countdown.ToString("0");
+            buttonText.text = countdown.ToString("0");
+            roundText.text = roundCounter.ToString("0");
         }
 
-        if (countdown <= 0 && coolDown >= 10 && !ButtonObj.activeInHierarchy)
+        if (countdown <= 0 && coolDown >= 10 && !buttonObj.activeInHierarchy)
         {
             int pickButton = Random.Range(0, buttons.Length);
 
-            ButtonObj.SetActive(true);
+            buttonObj.SetActive(true);
 
             buttonPicked = buttons[pickButton];
 
-            ButtonText.text = buttonPicked.ToString();
+            buttonText.text = buttonPicked.ToString();
 
             coolDown -= Time.deltaTime;
         }
@@ -57,9 +61,9 @@ public class ButtonToPress : MonoBehaviour
 
     public void DeactivateButtons()
     {
-        if (ButtonObj.activeInHierarchy)
+        if (buttonObj.activeInHierarchy)
         {
-            ButtonObj.SetActive(false);
+            buttonObj.SetActive(false);
         }
     }
 }
