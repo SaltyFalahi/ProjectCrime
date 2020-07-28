@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PathFollowing : MonoBehaviour
 {
+    public NumberRolled numberRolled;
+
     public List<Transform> tilePoints;
 
     public GameObject player;
@@ -21,15 +23,16 @@ public class PathFollowing : MonoBehaviour
 
     void Start()
     {
-        diceRoller = GameObject.FindGameObjectWithTag("DiceObj").GetComponent<DiceRoller>();
+        diceRoller = GetComponent<DiceRoller>();
         playerAbilities = GetComponent<PlayerAbilities>();
     }
 
     void Update()
     {
+        Debug.Log(diceRoller.diceRolled);
         if (diceRoller.diceRolled && !playerAbilities.moneyMagnetIsActive)
         {
-            MovePlayer(diceRoller.numberRolled);
+            MovePlayer(numberRolled.value);
         }
     }
 
@@ -52,48 +55,13 @@ public class PathFollowing : MonoBehaviour
             if (dist <= reachDist)
             {
                 index++;
-                diceRoller.numberRolled--;
+                numberRolled.value--;
                 reversePoints.Add(tilePoints[index]);
 
                 if (reversePoints.Count > 6)
                 {
                     reversePoints.RemoveAt(0);
                 }
-            }
-        }
-        else
-        {
-            if (spacesToMove < 0)
-            {
-                Debug.Log("Moonwalking "+ spacesToMove);
-                reverseIndex = (spacesToMove * -1) - 1;
-                Debug.Log("REEEEE " + reverseIndex);
-                transform.position = Vector3.MoveTowards(transform.position, reversePoints[reverseIndex].position, Time.deltaTime * speed);
-            }
-            else if (spacesToMove >= 0)
-            {
-                Debug.Log("No longer Moonwalking");
-                playerAbilities.isMoonwalk = false;
-                diceRoller.diceRolled = false;
-            }
-
-            if (dist <= reachDist)
-            {
-                if (reversePoints.Count > 6)
-                {
-                    reversePoints.RemoveAt(0);
-                }
-
-                reverseIndex--;
-                index--;
-                Debug.Log(index);
-                diceRoller.numberRolled++;
-            }
-
-            if (reverseIndex > reversePoints.Count)
-            {
-                reversePoints.Clear();
-                reverseIndex = 0;
             }
         }
     }

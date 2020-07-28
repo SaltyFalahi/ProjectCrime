@@ -11,6 +11,7 @@ TagManager:
   - Diamond
   - ItemSpace
   - PlayerList
+  - Board
   layers:
   - Default
   - TransparentFX

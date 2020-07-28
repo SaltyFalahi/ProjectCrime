@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PlayerAbilities : MonoBehaviour
 {
+    public NumberRolled numberRolled;
+
     public GameObject getawayVan;
     public GameObject diamond;
     public GameObject target;
+
     public List<int> itemList;
 
     public bool isMoonwalk = false;
@@ -21,10 +24,9 @@ public class PlayerAbilities : MonoBehaviour
     BoardUIManager boardUIManager;
     PlayerInfo myPlayerInfo;
 
-
     void Start()
     {
-        diceRoller = GameObject.FindGameObjectWithTag("DiceObj").GetComponent<DiceRoller>();
+        diceRoller = GetComponent<DiceRoller>();
         boardUIManager = GameObject.FindGameObjectWithTag("DiceObj").GetComponent<BoardUIManager>();
         myPlayerInfo = GetComponent<PlayerInfo>();
     }
@@ -46,7 +48,8 @@ public class PlayerAbilities : MonoBehaviour
         if (myPlayerInfo.sneakers >= minItems)
         {
             diceRoller.diceRolled = true;
-            diceRoller.numberRolled = Random.Range(1, 7) + Random.Range(1, 7);
+            diceRoller.Roll2D6();
+
             myPlayerInfo.itemsLeft--;
             myPlayerInfo.sneakers--;
             itemList.Remove(1);
@@ -55,7 +58,6 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.sneakers = 0;
             }
-            Debug.Log("Sneakers: " + diceRoller.numberRolled);
         }
     }
 
@@ -64,7 +66,8 @@ public class PlayerAbilities : MonoBehaviour
         if (myPlayerInfo.rocketShoes >= minItems)
         {
             diceRoller.diceRolled = true;
-            diceRoller.numberRolled = Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7);
+            diceRoller.Roll3D6();
+
             myPlayerInfo.itemsLeft--;
             myPlayerInfo.rocketShoes--;
             itemList.Remove(2);
@@ -73,7 +76,7 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.rocketShoes = 0;
             }
-            Debug.Log("Rocket Shoes: " + diceRoller.numberRolled);
+            Debug.Log("Rocket Shoes: " + numberRolled.value);
         }
     }
 
@@ -147,8 +150,8 @@ public class PlayerAbilities : MonoBehaviour
             diceRoller.RollD6();
 
             diceRoller.diceRolled = false;
-            target.GetComponent<PlayerInfo>().bucks -= diceRoller.numberRolled;
-            myPlayerInfo.bucks += diceRoller.numberRolled;
+            target.GetComponent<PlayerInfo>().bucks -= numberRolled.value;
+            myPlayerInfo.bucks += numberRolled.value;
         }
     }
 
