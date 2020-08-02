@@ -11,7 +11,9 @@ TagManager:
   - Diamond
   - ItemSpace
   - PlayerList
-  - Board
+  - Player 1
+  - Enemy
+  - MinigameManager
   layers:
   - Default
   - TransparentFX
