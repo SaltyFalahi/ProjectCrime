@@ -14,14 +14,15 @@ public class CopsAndRobbersMovement : MonoBehaviour
 
     public player type;
 
+    public bool cops;
+    public bool copsWin = false;
+
     public int moveSpeed;
 
     Rigidbody rb;
 
     string movementH;
     string movementV;
-
-    bool cops;
 
     void Start()
     {
@@ -73,7 +74,12 @@ public class CopsAndRobbersMovement : MonoBehaviour
     {
         if (other.CompareTag("Player 1"))
         {
+            moveSpeed = 0;
+
+            copsWin = true;
+
             Destroy(other.gameObject);
+
             Debug.Log("Blue Won");
         }
     }
