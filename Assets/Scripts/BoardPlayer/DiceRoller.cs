@@ -29,7 +29,6 @@ public class DiceRoller : MonoBehaviour
     {
         diceRolled = true;
         //numberRolled = Random.Range(1, 5);
-        //Debug.Log("D4: " + numberRolled);
         playerAbilities.target.GetComponent<PlayerAbilities>().ironBallIsActive = false;
     }
 

@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlueSpace : MonoBehaviour
+public class PathReset : MonoBehaviour
 {
-    public int count;
+    public List<Transform> mainPath;
 
-    PlayerInfo pi;
     PathFollowing pf;
 
     public bool done;
@@ -18,14 +17,8 @@ public class BlueSpace : MonoBehaviour
         {
             pf = other.GetComponent<PathFollowing>();
 
-            if (!pf.isMoving && !done)
-            {
-                pi = other.GetComponent<PlayerInfo>();
-                //Gain bucks
-                pi.bucks += count;
-                Debug.Log(pi.bucks);
-                done = true;
-            }
+            pf.tilePoints.Clear();
+            pf.tilePoints.AddRange(mainPath);
         }
     }
 }

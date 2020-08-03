@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class PlayerAbilities : MonoBehaviour
 {
+    public BoardUIManager boardUIManager;
+
     public NumberRolled numberRolled;
 
     public GameObject getawayVan;
     public GameObject diamond;
     public GameObject target;
+    public GameObject canvas;
 
     public List<int> itemList;
 
@@ -21,13 +24,13 @@ public class PlayerAbilities : MonoBehaviour
     int abilityUsed;
 
     DiceRoller diceRoller;
-    BoardUIManager boardUIManager;
     PlayerInfo myPlayerInfo;
+    TurnController turnController;
 
     void Start()
     {
+        turnController = GameObject.FindGameObjectWithTag("PlayerList").GetComponent<TurnController>();
         diceRoller = GetComponent<DiceRoller>();
-        boardUIManager = GameObject.FindGameObjectWithTag("DiceObj").GetComponent<BoardUIManager>();
         myPlayerInfo = GetComponent<PlayerInfo>();
     }
 
@@ -58,6 +61,7 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.sneakers = 0;
             }
+            turnController.turnOver = true;
         }
     }
 
@@ -76,7 +80,7 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.rocketShoes = 0;
             }
-            Debug.Log("Rocket Shoes: " + numberRolled.value);
+            turnController.turnOver = true;
         }
     }
 
@@ -94,6 +98,7 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.moonwalkShoes = 0;
             }
+            turnController.turnOver = true;
         }
     }
 
@@ -111,6 +116,7 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.getawayVan = 0;
             }
+            turnController.turnOver = true;
         }
     }
 
@@ -127,6 +133,7 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.shovel = 0;
             }
+            turnController.turnOver = true;
         }
     }
 
@@ -152,6 +159,7 @@ public class PlayerAbilities : MonoBehaviour
             diceRoller.diceRolled = false;
             target.GetComponent<PlayerInfo>().bucks -= numberRolled.value;
             myPlayerInfo.bucks += numberRolled.value;
+            turnController.turnOver = true;
         }
     }
 
@@ -208,6 +216,7 @@ public class PlayerAbilities : MonoBehaviour
                     target.GetComponent<PlayerInfo>().ironBall--;
                     break;
             }
+            turnController.turnOver = true;
         }
     }
 
@@ -227,6 +236,7 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.iKnowAGuy = 0;
             }
+            turnController.turnOver = true;
         }        
     }
 
@@ -245,6 +255,7 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.ironBall = 0;
             }
+            turnController.turnOver = true;
         }
     }
 
