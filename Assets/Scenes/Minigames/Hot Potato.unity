@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 727247231}
   - component: {fileID: 727247232}
   m_Layer: 0
-  m_Name: Minigame
+  m_Name: MinigameController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -461,7 +461,7 @@ MonoBehaviour:
   - {fileID: 1205933730}
   bomb: {fileID: 74942352}
   player: {fileID: 0}
-  timer: 10
+  timer: 15
 --- !u!1001 &976406586
 PrefabInstance:
   m_ObjectHideFlags: 0

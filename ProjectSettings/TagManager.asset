@@ -14,7 +14,8 @@ TagManager:
   - Player 1
   - Enemy
   - MinigameManager
-  - Board
+  - Cop
+  - Platform
   layers:
   - Default
   - TransparentFX
@@ -24,8 +25,8 @@ TagManager:
   - UI
   - 
   - 
-  - Player
-  - Dice
+  - 
+  - 
   - 
   - 
   - 

@@ -1,15 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class PrisonWallEscapeManager : MonoBehaviour
 {
-    public TextMeshProUGUI distText;
+    public List<GameObject> windowRow1;
+    public List<GameObject> windowRow2;
+    public List<GameObject> windowRow3;
+    public List<GameObject> windowRow4;
+    public List<GameObject> windowRow5;
+    public List<GameObject> windowRow6;
 
     public GameObject losePanel;
     public GameObject winPanel;
+
+    public TextMeshProUGUI distText;
 
     public Transform player;
     public Transform ground;
@@ -22,7 +28,7 @@ public class PrisonWallEscapeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -36,6 +42,11 @@ public class PrisonWallEscapeManager : MonoBehaviour
         {
             PlayerWin();
         }
+    }
+
+    void pickWindows()
+    {
+
     }
 
     public void PlayerWin()

@@ -30,7 +30,7 @@ public class HotPotato : MonoBehaviour
             SpawnBomb();
         }
 
-        bomb.transform.position = new Vector3(player.transform.position.x, 5, player.transform.position.z);
+        bomb.transform.position = new Vector3(player.transform.position.x, 3, player.transform.position.z);
     }
 
     void SpawnBomb()
