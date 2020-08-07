@@ -37,7 +37,7 @@ public class FTCGameManager : MonoBehaviour
             int destroyTime = 2;
 
             platforms[ranPlatform].GetComponent<Rigidbody>().useGravity = true;
-            platforms[ranPlatform].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                platforms[ranPlatform].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;    
 
             yield return new WaitForSeconds(destroyTime);
 
