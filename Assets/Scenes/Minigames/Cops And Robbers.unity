@@ -519,8 +519,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -216.8, y: -25}
-  m_SizeDelta: {x: 213.7, y: 50}
+  m_AnchoredPosition: {x: -186.70001, y: -25}
+  m_SizeDelta: {x: 209.4, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &354269832
 MonoBehaviour:
@@ -1413,8 +1413,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -55, y: -25}
-  m_SizeDelta: {x: 110, y: 50}
+  m_AnchoredPosition: {x: -41, y: -25}
+  m_SizeDelta: {x: 82, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &758356522
 GameObject:
@@ -3270,13 +3270,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892223174}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c2f3f7e2c6602f47896f1456f3b0bf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   copsPanel: {fileID: 1592679413}
-  robberPanel: {fileID: 0}
+  robberPanel: {fileID: 758356522}
   timerText: {fileID: 689019988}
   timer: 60
 --- !u!1 &1928229208 stripped
