@@ -314,7 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   instance: {fileID: 727247232}
-  moveSpeed: 10
+  moveSpeed: 25
 --- !u!1001 &561233104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -410,7 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   instance: {fileID: 727247232}
-  moveSpeed: 10
+  moveSpeed: 25
 --- !u!1 &727247230
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,7 +562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   instance: {fileID: 727247232}
-  moveSpeed: 10
+  moveSpeed: 25
 --- !u!1001 &1205933729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -663,7 +663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   instance: {fileID: 727247232}
-  moveSpeed: 10
+  moveSpeed: 25
 --- !u!1 &1727853721
 GameObject:
   m_ObjectHideFlags: 0

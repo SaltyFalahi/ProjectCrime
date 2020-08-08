@@ -40,7 +40,7 @@ public class CopsAndRobbersMovement : MonoBehaviour
         }
         else
         {
-            rb.AddForce(transform.position + movement * moveSpeed * Time.deltaTime);
+            rb.AddForce(movement * moveSpeed);
         }
     }
 

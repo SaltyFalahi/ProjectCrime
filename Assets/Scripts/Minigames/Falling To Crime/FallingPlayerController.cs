@@ -42,8 +42,6 @@ public class FallingPlayerController : MonoBehaviour
 
         rb.MovePosition(transform.position + movement * moveSpeed * Time.deltaTime);
 
-        //rb.AddForce(movement * moveSpeed);
-
         if (Input.GetButtonDown(jump) && jumpCounter >= 1)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
