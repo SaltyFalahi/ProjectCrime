@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CopsAndRobbersMovement : MonoBehaviour
+public class FallingPlayerController : MonoBehaviour
 {
     public enum player
     {
@@ -14,33 +14,39 @@ public class CopsAndRobbersMovement : MonoBehaviour
 
     public player type;
 
-    public bool cops;
-    public bool copsWin = false;
-
-    public int moveSpeed;
-
     Rigidbody rb;
 
+    [SerializeField]
+    float moveSpeed;
+
+    [SerializeField]
+    float jumpForce;
+
+    int jumpCounter = 1;
+
+    string jump;
     string movementH;
     string movementV;
 
+    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         GetPlayer();
     }
 
+    // Update is called once per frame
     void Update()
     {
         Vector3 movement = new Vector3(Input.GetAxis(movementH), 0, Input.GetAxis(movementV));
 
-        if (!cops)
+        rb.MovePosition(transform.position + movement * moveSpeed * Time.deltaTime);
+
+        if (Input.GetButtonDown(jump) && jumpCounter >= 1)
         {
-            rb.MovePosition(transform.position + movement * moveSpeed * Time.deltaTime);
-        }
-        else
-        {
-            rb.AddForce(movement * moveSpeed);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+            jumpCounter--;
         }
     }
 
@@ -49,38 +55,36 @@ public class CopsAndRobbersMovement : MonoBehaviour
         switch (type)
         {
             case player.P1:
+                jump = "P1Fire1";
                 movementH = "P1Horizontal";
                 movementV = "P1Vertical";
                 break;
 
             case player.P2:
+                jump = "P2Fire1";
                 movementH = "P2Horizontal";
                 movementV = "P2Vertical";
                 break;
 
             case player.P3:
+                jump = "P3Fire1";
                 movementH = "P3Horizontal";
                 movementV = "P3Vertical";
                 break;
 
             case player.P4:
+                jump = "P4Fire1";
                 movementH = "P4Horizontal";
                 movementV = "P4Vertical";
                 break;
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Player 1"))
+        if (collision.gameObject.CompareTag("Platform"))
         {
-            moveSpeed = 0;
-
-            copsWin = true;
-
-            Destroy(other.gameObject);
-
-            Debug.Log("Blue Won");
+            jumpCounter = 1;
         }
     }
 }

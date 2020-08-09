@@ -6,7 +6,7 @@ using TMPro;
 public class CopsAndRobbersManager : MonoBehaviour
 {
     public GameObject copsPanel;
-    public GameObject criminalPanel;
+    public GameObject robberPanel;
 
     public TextMeshProUGUI timerText;
 
@@ -44,11 +44,11 @@ public class CopsAndRobbersManager : MonoBehaviour
             copsPanel.SetActive(true);
         }
 
-        if (!criminalPanel.activeInHierarchy && countdown <= 0)
+        if (!robberPanel.activeInHierarchy && countdown <= 0)
         {
             cARMCriminal.moveSpeed = 0;
 
-            criminalPanel.SetActive(true);
+            robberPanel.SetActive(true);
 
             Debug.Log("Red won");
         }
