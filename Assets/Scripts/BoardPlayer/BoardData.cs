@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class BoardData : MonoBehaviour
 {
+    public TurnController tc;
+
+    public PlayerList pList;
+
     public PlayerInfo pi1;
     public PlayerInfo pi2;
     public PlayerInfo pi3;
@@ -18,6 +22,16 @@ public class BoardData : MonoBehaviour
     public PlayerData player2;
     public PlayerData player3;
     public PlayerData player4;
+
+    private void Start()
+    {
+        pList = GameObject.FindGameObjectWithTag("PlayerList").GetComponent<PlayerList>();
+
+        pi1 = pList.players[0].GetComponent<PlayerInfo>();
+        pi2 = pList.players[1].GetComponent<PlayerInfo>();
+        pf1 = pList.players[0].GetComponent<PathFollowing>();
+        pf2 = pList.players[1].GetComponent<PathFollowing>();
+    }
 
     public void SavePlayers()
     {
@@ -62,6 +76,7 @@ public class BoardData : MonoBehaviour
 
     public void LoadPlayers()
     {
+        tc.turn = 0;
         pi1.bucks = player1.bucks;
         pi1.diamonds = player1.diamonds;
         pi1.sneakers = player1.sneakers;

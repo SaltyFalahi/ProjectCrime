@@ -23,7 +23,7 @@ public class BlueSpace : MonoBehaviour
                 pi = other.GetComponent<PlayerInfo>();
                 //Gain bucks
                 pi.bucks += count;
-                Debug.Log(pi.bucks);
+
                 done = true;
             }
         }

@@ -23,7 +23,7 @@ public class RedSpace : MonoBehaviour
                 pi = other.GetComponent<PlayerInfo>();
                 //Lose bucks
                 pi.bucks -= count;
-                Debug.Log(pi.bucks);
+
                 done = true;
             }
         }

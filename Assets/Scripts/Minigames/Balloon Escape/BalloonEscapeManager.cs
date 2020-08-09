@@ -2,28 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class BalloonEscapeManager : MonoBehaviour
 {
-    public GameObject losePanel;
+    public Standing standings;
+
+    public BoardController bc;
 
     public TextMeshProUGUI timerText;
 
-    public float timer;
+    public List<PlayerControls> players;
 
-    PlayerControls pC;
+    public float timer;
 
     float countdown;
 
-    // Start is called before the first frame update
     void Start()
     {
-        pC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>();
+        bc = GameObject.FindGameObjectWithTag("BoardController").GetComponent<BoardController>();
 
         countdown = timer;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (countdown <= 60 && countdown >= 0)
@@ -33,13 +34,15 @@ public class BalloonEscapeManager : MonoBehaviour
         else
         {
             countdown = 0;
+
+            standings.p1 = (int)players[0].score;
+            standings.p2 = (int)players[1].score;
+            //standings.p3 = (int)players[2].score;
+            //standings.p4 = (int)players[3].score;
+
+            SceneManager.LoadScene(2);
         }
 
         timerText.text = countdown.ToString("00" + "s");
-
-        if (pC.isPopped && !losePanel.activeInHierarchy)
-        {
-            losePanel.SetActive(true);
-        }
     }
 }
