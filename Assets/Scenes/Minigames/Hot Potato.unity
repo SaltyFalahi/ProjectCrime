@@ -226,10 +226,15 @@ PrefabInstance:
       propertyPath: type
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 973382537457066552, guid: d79855d2575749642bf482a859ae73c5,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2602463061027763419, guid: d79855d2575749642bf482a859ae73c5,
         type: 3}
       propertyPath: m_Name
-      value: Player (1)
+      value: Player 2
       objectReference: {fileID: 0}
     - target: {fileID: 2602463061027763419, guid: d79855d2575749642bf482a859ae73c5,
         type: 3}
@@ -322,10 +327,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 973382537457066552, guid: d79855d2575749642bf482a859ae73c5,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2602463061027763419, guid: d79855d2575749642bf482a859ae73c5,
         type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Player 1
       objectReference: {fileID: 0}
     - target: {fileID: 2602463061027763419, guid: d79855d2575749642bf482a859ae73c5,
         type: 3}
@@ -454,6 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a93cfa0c0022354093dc8fcb94f5519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  standing: {fileID: 11400000, guid: 4b33e6842e48aa04297d2ec563ab1cc4, type: 2}
   players:
   - {fileID: 561233105}
   - {fileID: 317901724}
@@ -462,6 +473,7 @@ MonoBehaviour:
   bomb: {fileID: 74942352}
   player: {fileID: 0}
   timer: 15
+  cooldownTimer: 1
 --- !u!1001 &976406586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -474,10 +486,15 @@ PrefabInstance:
       propertyPath: type
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 973382537457066552, guid: d79855d2575749642bf482a859ae73c5,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2602463061027763419, guid: d79855d2575749642bf482a859ae73c5,
         type: 3}
       propertyPath: m_Name
-      value: Player (2)
+      value: Player 3
       objectReference: {fileID: 0}
     - target: {fileID: 2602463061027763419, guid: d79855d2575749642bf482a859ae73c5,
         type: 3}
@@ -575,10 +592,15 @@ PrefabInstance:
       propertyPath: type
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 973382537457066552, guid: d79855d2575749642bf482a859ae73c5,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2602463061027763419, guid: d79855d2575749642bf482a859ae73c5,
         type: 3}
       propertyPath: m_Name
-      value: Player (3)
+      value: Player 4
       objectReference: {fileID: 0}
     - target: {fileID: 2602463061027763419, guid: d79855d2575749642bf482a859ae73c5,
         type: 3}

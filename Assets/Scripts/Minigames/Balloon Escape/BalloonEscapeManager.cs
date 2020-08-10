@@ -40,7 +40,7 @@ public class BalloonEscapeManager : MonoBehaviour
             //standings.p3 = (int)players[2].score;
             //standings.p4 = (int)players[3].score;
 
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(1);
         }
 
         timerText.text = countdown.ToString("00" + "s");

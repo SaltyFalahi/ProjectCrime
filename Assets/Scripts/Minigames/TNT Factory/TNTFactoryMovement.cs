@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HotPotatoMovement : MonoBehaviour
+public class TNTFactoryMovement : MonoBehaviour
 {
     public enum player
     {
@@ -14,14 +14,17 @@ public class HotPotatoMovement : MonoBehaviour
 
     public player type;
 
-    public HotPotato instance;
-
     public int moveSpeed;
+
+    TNT block;
 
     Rigidbody rb;
 
     string movementH;
     string movementV;
+    string drop;
+
+    bool carrying;
 
     void Start()
     {
@@ -33,7 +36,14 @@ public class HotPotatoMovement : MonoBehaviour
     {
         Vector3 movement = new Vector3(Input.GetAxis(movementH), 0, Input.GetAxis(movementV));
 
-        rb.MovePosition(transform.position + movement * moveSpeed * Time.deltaTime);
+        rb.AddForce(movement * moveSpeed);
+
+        if (Input.GetButtonDown(drop))
+        {
+            block.parent = null;
+            block.GetComponent<Rigidbody>().useGravity = true;
+            carrying = false;
+        }
     }
 
     void GetPlayer()
@@ -43,31 +53,37 @@ public class HotPotatoMovement : MonoBehaviour
             case player.P1:
                 movementH = "P1Horizontal";
                 movementV = "P1Vertical";
+                drop = "P1Fire1";
                 break;
 
             case player.P2:
                 movementH = "P2Horizontal";
                 movementV = "P2Vertical";
+                drop = "P2Fire1";
                 break;
 
             case player.P3:
                 movementH = "P3Horizontal";
                 movementV = "P3Vertical";
+                drop = "P3Fire1";
                 break;
 
             case player.P4:
                 movementH = "P4Horizontal";
                 movementV = "P4Vertical";
+                drop = "P4Fire1";
                 break;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("T") && !carrying || other.CompareTag("N") && !carrying)
         {
-            instance.PassBomb(other.gameObject);
-            Debug.Log("hi");
+            block = other.gameObject.GetComponent<TNT>();
+            block.parent = gameObject.transform;
+            block.GetComponent<Rigidbody>().useGravity = false;
+            carrying = true;
         }
     }
 }

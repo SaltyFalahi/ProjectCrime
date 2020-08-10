@@ -79,8 +79,6 @@ public class CopsAndRobbersMovement : MonoBehaviour
             copsWin = true;
 
             Destroy(other.gameObject);
-
-            Debug.Log("Blue Won");
         }
     }
 }

@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TNTFactory : MonoBehaviour
 {
+    public Standing standing;
+
     public GameObject t;
     public GameObject n;
 
@@ -11,6 +14,9 @@ public class TNTFactory : MonoBehaviour
 
     public List<TNTPlatform> right;
     public List<TNTPlatform> left;
+
+    public List<GameObject> rightTeam;
+    public List<GameObject> leftTeam;
 
     public int speed;
 
@@ -69,12 +75,58 @@ public class TNTFactory : MonoBehaviour
 
         if (countR > 3)
         {
-            Debug.Log("Right team wins");
+            for (int i = 0; i < rightTeam.Count; i++)
+            {
+                if (rightTeam[i].GetComponent<TNTFactoryMovement>().type.ToString() == "P1")
+                {
+                    standing.p1 = 5;
+
+                }
+                if (rightTeam[i].GetComponent<TNTFactoryMovement>().type.ToString() == "P2")
+                {
+                    standing.p2 = 5;
+
+                }
+                if (rightTeam[i].GetComponent<TNTFactoryMovement>().type.ToString() == "P3")
+                {
+                    standing.p3 = 5;
+
+                }
+                if (rightTeam[i].GetComponent<TNTFactoryMovement>().type.ToString() == "P4")
+                {
+                    standing.p4 = 5;
+
+                }
+            }
+            SceneManager.LoadScene(1);
         }
 
         if (countL > 3)
         {
-            Debug.Log("Left team wins");
+            for (int i = 0; i < leftTeam.Count; i++)
+            {
+                if (leftTeam[i].GetComponent<TNTFactoryMovement>().type.ToString() == "P1")
+                {
+                    standing.p1 = 5;
+
+                }
+                if (leftTeam[i].GetComponent<TNTFactoryMovement>().type.ToString() == "P2")
+                {
+                    standing.p2 = 5;
+
+                }
+                if (leftTeam[i].GetComponent<TNTFactoryMovement>().type.ToString() == "P3")
+                {
+                    standing.p3 = 5;
+
+                }
+                if (leftTeam[i].GetComponent<TNTFactoryMovement>().type.ToString() == "P4")
+                {
+                    standing.p4 = 5;
+
+                }
+            }
+            SceneManager.LoadScene(1);
         }
     }
 

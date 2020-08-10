@@ -2571,7 +2571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   moveSpeed: 25
-  jumpForce: 5
+  jumpForce: 20
 --- !u!1001 &1243406060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2924,7 +2924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   moveSpeed: 25
-  jumpForce: 5
+  jumpForce: 20
 --- !u!1001 &1784410835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3185,7 +3185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   moveSpeed: 25
-  jumpForce: 5
+  jumpForce: 20
 --- !u!1001 &1874515233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3571,7 +3571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   moveSpeed: 25
-  jumpForce: 5
+  jumpForce: 20
 --- !u!1001 &2053767209
 PrefabInstance:
   m_ObjectHideFlags: 0

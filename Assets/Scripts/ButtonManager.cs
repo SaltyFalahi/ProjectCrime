@@ -9,14 +9,12 @@ public class ButtonManager : MonoBehaviour
     public TextMeshProUGUI scoretxt;
 
     ButtonToPress BTP;
-    ShotEmitter SE;
 
     int playerScore;
 
     void Start()
     {
         BTP = GetComponent<ButtonToPress>();
-        SE = GetComponent<ShotEmitter>();
     }
 
     void Update()
@@ -116,25 +114,4 @@ public class ButtonManager : MonoBehaviour
         BTP.DeactivateButtons();
     }
 
-    public void AddShot()
-    {
-        playerScore++;
-    }
-
-    public void ReduceShot()
-    {
-        playerScore--;
-    }
-
-    public void ConfirmAnswer()
-    {
-        if (playerScore == SE.SetShotCount())
-        {
-            SE.winText.SetActive(true);
-        }
-        else
-        {
-            SE.loseText.SetActive(true);
-        }
-    }
 }
