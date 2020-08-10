@@ -1126,7 +1126,7 @@ MonoBehaviour:
   type: 0
   cops: 1
   copsWin: 0
-  moveSpeed: 40
+  moveSpeed: 15
 --- !u!1 &612302822 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 03b3766662d4e8a41ac20dd056cd2163,
