@@ -5,22 +5,31 @@ using TMPro;
 
 public class PrisonWallEscapeManager : MonoBehaviour
 {
-    public List<GameObject> windowRow1;
-    public List<GameObject> windowRow2;
-    public List<GameObject> windowRow3;
-    public List<GameObject> windowRow4;
-    public List<GameObject> windowRow5;
-    public List<GameObject> windowRow6;
-
     public GameObject losePanel;
     public GameObject winPanel;
 
-    public TextMeshProUGUI distText;
-
-    public Transform player;
-    public Transform ground;
-
     public int playersLeft = 4;
+
+    [SerializeField]
+    TextMeshProUGUI distText;
+
+    [SerializeField]
+    List<GameObject> windowRow1;
+    [SerializeField]
+    List<GameObject> windowRow2;
+    [SerializeField]
+    List<GameObject> windowRow3;
+    [SerializeField]
+    List<GameObject> windowRow4;
+    [SerializeField]
+    List<GameObject> windowRow5;
+    [SerializeField]
+    List<GameObject> windowRow6;
+
+    [SerializeField]
+    Transform player;
+    [SerializeField]
+    Transform ground;
 
     float distanceToGround;
     float offSet = 4;
@@ -28,7 +37,12 @@ public class PrisonWallEscapeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        pickWindows1();
+        pickWindows2();
+        pickWindows3();
+        pickWindows4();
+        pickWindows5();
+        pickWindows6();
     }
 
     // Update is called once per frame
@@ -44,9 +58,136 @@ public class PrisonWallEscapeManager : MonoBehaviour
         }
     }
 
-    void pickWindows()
+    void pickWindows1()
     {
-        
+        int windowPicked1 = Random.Range(1, 3);
+        int windowPicked2 = Random.Range(3, 5);
+        int windowPicked3 = Random.Range(5, 9);
+        int windowPicked4 = Random.Range(5, 9);
+
+        windowRow1[windowPicked1].GetComponent<Renderer>().material.color = Color.red;
+        windowRow1[windowPicked1].GetComponent<BoxCollider>().enabled = true;
+
+        windowRow1[windowPicked2].GetComponent<Renderer>().material.color = Color.red;
+        windowRow1[windowPicked2].GetComponent<BoxCollider>().enabled = true;
+
+        windowRow1[windowPicked3].GetComponent<Renderer>().material.color = Color.red;
+        windowRow1[windowPicked3].GetComponent<BoxCollider>().enabled = true;
+
+        windowRow1[windowPicked4].GetComponent<Renderer>().material.color = Color.red;
+        windowRow1[windowPicked4].GetComponent<BoxCollider>().enabled = true;
+    }
+
+    void pickWindows2()
+    {
+        int windowPicked1 = Random.Range(1, 3);
+        int windowPicked2 = Random.Range(3, 5);
+        int windowPicked3 = Random.Range(5, 9);
+        int windowPicked4 = Random.Range(5, 9);
+
+        windowRow2[windowPicked1].GetComponent<Renderer>().material.color = Color.red;
+        windowRow2[windowPicked1].GetComponent<BoxCollider>().enabled = true;
+
+        windowRow2[windowPicked2].GetComponent<Renderer>().material.color = Color.red;
+        windowRow2[windowPicked2].GetComponent<BoxCollider>().enabled = true;
+
+        windowRow2[windowPicked3].GetComponent<Renderer>().material.color = Color.red;
+        windowRow2[windowPicked3].GetComponent<BoxCollider>().enabled = true;
+
+        windowRow2[windowPicked4].GetComponent<Renderer>().material.color = Color.red;
+        windowRow2[windowPicked4].GetComponent<BoxCollider>().enabled = true;
+    }
+
+    void pickWindows3()
+    {
+        int windowPicked1 = Random.Range(1, 3);
+        int windowPicked2 = Random.Range(3, 5);
+        int windowPicked3 = Random.Range(5, 9);
+        int windowPicked4 = Random.Range(5, 9);
+
+        windowRow3[windowPicked1].GetComponent<Renderer>().material.color = Color.red;
+        windowRow3[windowPicked1].GetComponent<BoxCollider>().enabled = true;
+
+        windowRow3[windowPicked2].GetComponent<Renderer>().material.color = Color.red;
+        windowRow3[windowPicked2].GetComponent<BoxCollider>().enabled = true;
+
+        windowRow3[windowPicked3].GetComponent<Renderer>().material.color = Color.red;
+        windowRow3[windowPicked3].GetComponent<BoxCollider>().enabled = true;
+
+        windowRow3[windowPicked4].GetComponent<Renderer>().material.color = Color.red;
+        windowRow3[windowPicked4].GetComponent<BoxCollider>().enabled = true;
+    }
+
+    void pickWindows4()
+    {
+        int windowPicked1 = Random.Range(1, 3);
+        int windowPicked2 = Random.Range(3, 5);
+        int windowPicked3 = Random.Range(3, 5);
+        int windowPicked4 = Random.Range(5, 9);
+        int windowPicked5 = Random.Range(5, 9);
+
+        windowRow4[windowPicked1].GetComponent<Renderer>().material.color = Color.red;
+        windowRow4[windowPicked1].GetComponent<BoxCollider>().enabled = true;
+
+        windowRow4[windowPicked2].GetComponent<Renderer>().material.color = Color.red;
+        windowRow4[windowPicked2].GetComponent<BoxCollider>().enabled = true;
+
+        windowRow4[windowPicked3].GetComponent<Renderer>().material.color = Color.red;
+        windowRow4[windowPicked3].GetComponent<BoxCollider>().enabled = true;
+
+        windowRow4[windowPicked4].GetComponent<Renderer>().material.color = Color.red;
+        windowRow4[windowPicked4].GetComponent<BoxCollider>().enabled = true;
+
+        windowRow4[windowPicked5].GetComponent<Renderer>().material.color = Color.red;
+        windowRow4[windowPicked5].GetComponent<BoxCollider>().enabled = true;
+    }
+
+    void pickWindows5()
+    {
+        int windowPicked1 = Random.Range(1, 3);
+        int windowPicked2 = Random.Range(3, 5);
+        int windowPicked3 = Random.Range(3, 5);
+        int windowPicked4 = Random.Range(5, 9);
+        int windowPicked5 = Random.Range(5, 9);
+
+        windowRow5[windowPicked1].GetComponent<Renderer>().material.color = Color.red;
+        windowRow5[windowPicked1].GetComponent<BoxCollider>().enabled = true;
+
+        windowRow5[windowPicked2].GetComponent<Renderer>().material.color = Color.red;
+        windowRow5[windowPicked2].GetComponent<BoxCollider>().enabled = true;
+
+        windowRow5[windowPicked3].GetComponent<Renderer>().material.color = Color.red;
+        windowRow5[windowPicked3].GetComponent<BoxCollider>().enabled = true;
+
+        windowRow5[windowPicked4].GetComponent<Renderer>().material.color = Color.red;
+        windowRow5[windowPicked4].GetComponent<BoxCollider>().enabled = true;
+
+        windowRow6[windowPicked5].GetComponent<Renderer>().material.color = Color.red;
+        windowRow6[windowPicked5].GetComponent<BoxCollider>().enabled = true;
+    }
+
+    void pickWindows6()
+    {
+        int windowPicked1 = Random.Range(1, 3);
+        int windowPicked2 = Random.Range(3, 5);
+        int windowPicked3 = Random.Range(3, 5);
+        int windowPicked4 = Random.Range(5, 9);
+        int windowPicked5 = Random.Range(5, 9);
+
+        windowRow6[windowPicked1].GetComponent<Renderer>().material.color = Color.red;
+        windowRow6[windowPicked1].GetComponent<BoxCollider>().enabled = true;
+
+        windowRow6[windowPicked2].GetComponent<Renderer>().material.color = Color.red;
+        windowRow6[windowPicked2].GetComponent<BoxCollider>().enabled = true;
+
+        windowRow6[windowPicked3].GetComponent<Renderer>().material.color = Color.red;
+        windowRow6[windowPicked3].GetComponent<BoxCollider>().enabled = true;
+
+        windowRow6[windowPicked4].GetComponent<Renderer>().material.color = Color.red;
+        windowRow6[windowPicked4].GetComponent<BoxCollider>().enabled = true;
+
+        windowRow6[windowPicked5].GetComponent<Renderer>().material.color = Color.red;
+        windowRow6[windowPicked5].GetComponent<BoxCollider>().enabled = true;
     }
 
     public void PlayerWin()

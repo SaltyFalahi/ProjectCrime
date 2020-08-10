@@ -1032,6 +1032,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb7c29cbf5823654b84373f4353e3bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  losePanel: {fileID: 647828747}
+  winPanel: {fileID: 348801212}
+  playersLeft: 4
+  distText: {fileID: 1711134450}
   windowRow1:
   - {fileID: 1837907076}
   - {fileID: 1662172591}
@@ -1092,12 +1096,8 @@ MonoBehaviour:
   - {fileID: 437744302}
   - {fileID: 456265333}
   - {fileID: 2084242877}
-  losePanel: {fileID: 647828747}
-  winPanel: {fileID: 348801212}
-  distText: {fileID: 1711134450}
   player: {fileID: 599654323}
   ground: {fileID: 1132621480}
-  playersLeft: 4
 --- !u!1 &191321970
 GameObject:
   m_ObjectHideFlags: 0
@@ -2324,8 +2324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803d33291d904184ead80c3c05017003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vRappelSpeed: 1
-  hRappelSpeed: 5
+  vRappelSpeed: 2
+  hRappelSpeed: 2.5
   moveSpeed: 15
 --- !u!1 &604009037
 GameObject:
