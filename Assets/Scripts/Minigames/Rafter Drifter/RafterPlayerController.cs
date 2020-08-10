@@ -18,10 +18,13 @@ public class RafterPlayerController : MonoBehaviour
 
     Rigidbody rb;
 
-    bool isDead;
+    bool isDead = false;
 
     [SerializeField]
     float moveSpeed;
+
+    [SerializeField]
+    float maxSpeed = 10;
 
     [SerializeField]
     float jumpForce;
@@ -48,6 +51,9 @@ public class RafterPlayerController : MonoBehaviour
             Vector3 movement = new Vector3(Input.GetAxis(movementH), 0, Input.GetAxis(movementV));
 
             rb.AddForce(movement * moveSpeed);
+            Vector3 v = rb.velocity;
+            v.x = Mathf.Clamp(v.x, 0, maxSpeed);
+            v.y = Mathf.Clamp(v.y, 0, maxSpeed);
 
             if (Input.GetButtonDown(jump) && jumpCounter >= 1)
             {
@@ -98,9 +104,12 @@ public class RafterPlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        isDead = true;
-        transform.position = rMan.placesList[rMan.index].transform.position;
-        transform.rotation = rMan.placesList[rMan.index].transform.rotation;
-        rMan.index++;
+        if (other.CompareTag("Enemy"))
+        {
+            isDead = true;
+            transform.position = rMan.placesList[rMan.index].transform.position;
+            transform.rotation = rMan.placesList[rMan.index].transform.rotation;
+            rMan.index++;
+        }
     }
 }
