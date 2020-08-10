@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using SocketIO;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Gyroscope : MonoBehaviour
 {
+    public SocketIOComponent soc;
+
     public bool isFlat;
 
     void Start()
@@ -21,5 +24,11 @@ public class Gyroscope : MonoBehaviour
         }
 
         //Send tilt to Server
+        JSONObject jdata = new JSONObject();
+        jdata.AddField("X", tilt.x);
+        jdata.AddField("Y", tilt.y);
+        jdata.AddField("Z", tilt.z);
+
+        soc.Emit("Input Tilt", jdata);
     }
 }

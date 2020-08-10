@@ -4,26 +4,18 @@ using UnityEngine;
 
 public class VanInfo : MonoBehaviour
 {
-    DiceRoller diceRoller;
+    public NumberRolled numberRolled;
+
     PlayerInfo otherPlayerInfo;
     PlayerInfo myPlayerInfo;
 
     public int moneyToSteal;
 
-    // Start is called before the first frame update
     void Start()
     {
-        diceRoller = GameObject.FindGameObjectWithTag("DiceObj").GetComponent<DiceRoller>();
         myPlayerInfo = GetComponentInParent<PlayerInfo>();
-        moneyToSteal = diceRoller.numberRolled;
-
+        moneyToSteal = numberRolled.value;
         Debug.Log("Money: " + moneyToSteal);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void OnTriggerEnter(Collider vanTrig)

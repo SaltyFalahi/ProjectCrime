@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class PlayerAbilities : MonoBehaviour
 {
+    public BoardUIManager boardUIManager;
+
+    public NumberRolled numberRolled;
+
     public GameObject getawayVan;
     public GameObject diamond;
     public GameObject target;
+    public GameObject canvas;
+
     public List<int> itemList;
 
     public bool isMoonwalk = false;
@@ -18,14 +24,13 @@ public class PlayerAbilities : MonoBehaviour
     int abilityUsed;
 
     DiceRoller diceRoller;
-    BoardUIManager boardUIManager;
     PlayerInfo myPlayerInfo;
-
+    TurnController turnController;
 
     void Start()
     {
-        diceRoller = GameObject.FindGameObjectWithTag("DiceObj").GetComponent<DiceRoller>();
-        boardUIManager = GameObject.FindGameObjectWithTag("DiceObj").GetComponent<BoardUIManager>();
+        turnController = GameObject.FindGameObjectWithTag("PlayerList").GetComponent<TurnController>();
+        diceRoller = GetComponent<DiceRoller>();
         myPlayerInfo = GetComponent<PlayerInfo>();
     }
 
@@ -46,7 +51,8 @@ public class PlayerAbilities : MonoBehaviour
         if (myPlayerInfo.sneakers >= minItems)
         {
             diceRoller.diceRolled = true;
-            diceRoller.numberRolled = Random.Range(1, 7) + Random.Range(1, 7);
+            diceRoller.Roll2D6();
+
             myPlayerInfo.itemsLeft--;
             myPlayerInfo.sneakers--;
             itemList.Remove(1);
@@ -55,7 +61,7 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.sneakers = 0;
             }
-            Debug.Log("Sneakers: " + diceRoller.numberRolled);
+            turnController.turnOver = true;
         }
     }
 
@@ -64,7 +70,8 @@ public class PlayerAbilities : MonoBehaviour
         if (myPlayerInfo.rocketShoes >= minItems)
         {
             diceRoller.diceRolled = true;
-            diceRoller.numberRolled = Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7);
+            diceRoller.Roll3D6();
+
             myPlayerInfo.itemsLeft--;
             myPlayerInfo.rocketShoes--;
             itemList.Remove(2);
@@ -73,7 +80,7 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.rocketShoes = 0;
             }
-            Debug.Log("Rocket Shoes: " + diceRoller.numberRolled);
+            turnController.turnOver = true;
         }
     }
 
@@ -91,6 +98,7 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.moonwalkShoes = 0;
             }
+            turnController.turnOver = true;
         }
     }
 
@@ -108,6 +116,7 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.getawayVan = 0;
             }
+            turnController.turnOver = true;
         }
     }
 
@@ -124,6 +133,7 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.shovel = 0;
             }
+            turnController.turnOver = true;
         }
     }
 
@@ -147,8 +157,9 @@ public class PlayerAbilities : MonoBehaviour
             diceRoller.RollD6();
 
             diceRoller.diceRolled = false;
-            target.GetComponent<PlayerInfo>().bucks -= diceRoller.numberRolled;
-            myPlayerInfo.bucks += diceRoller.numberRolled;
+            target.GetComponent<PlayerInfo>().bucks -= numberRolled.value;
+            myPlayerInfo.bucks += numberRolled.value;
+            turnController.turnOver = true;
         }
     }
 
@@ -205,6 +216,7 @@ public class PlayerAbilities : MonoBehaviour
                     target.GetComponent<PlayerInfo>().ironBall--;
                     break;
             }
+            turnController.turnOver = true;
         }
     }
 
@@ -224,6 +236,7 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.iKnowAGuy = 0;
             }
+            turnController.turnOver = true;
         }        
     }
 
@@ -242,6 +255,7 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.ironBall = 0;
             }
+            turnController.turnOver = true;
         }
     }
 

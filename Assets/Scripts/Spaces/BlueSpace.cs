@@ -6,16 +6,26 @@ public class BlueSpace : MonoBehaviour
 {
     public int count;
 
-    PlayerInfo player;
+    PlayerInfo pi;
+    PathFollowing pf;
 
-    private void OnTriggerEnter(Collider other)
+    public bool done;
+
+    private void OnTriggerStay(Collider other)
     {
-        //If player walks into the space
+        //If player stops on the space
         if (other.CompareTag("Player"))
         {
-            player = other.GetComponent<PlayerInfo>();
-            //Gain bucks
-            player.bucks += count;
+            pf = other.GetComponent<PathFollowing>();
+
+            if (!pf.isMoving && !done)
+            {
+                pi = other.GetComponent<PlayerInfo>();
+                //Gain bucks
+                pi.bucks += count;
+
+                done = true;
+            }
         }
     }
 }

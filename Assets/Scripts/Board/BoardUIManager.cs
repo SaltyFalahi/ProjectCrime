@@ -17,6 +17,7 @@ public class BoardUIManager : MonoBehaviour
     public GameObject itemsPanel;
     public GameObject playerSelectPanel;    
     public GameObject mapSelectionPanel;
+    public GameObject directionPanel;
     public GameObject sidemapControlPanel;
 
     float speed;
@@ -50,6 +51,7 @@ public class BoardUIManager : MonoBehaviour
             itemsPanel.SetActive(false);
             playerSelectPanel.SetActive(false);
             mapSelectionPanel.SetActive(false);
+            directionPanel.SetActive(false);
             sidemapControlPanel.SetActive(false);
         }
     }
@@ -63,6 +65,7 @@ public class BoardUIManager : MonoBehaviour
             itemsPanel.SetActive(true);
             playerSelectPanel.SetActive(false);
             mapSelectionPanel.SetActive(false);
+            directionPanel.SetActive(false);
             sidemapControlPanel.SetActive(false);
         }
     }
@@ -76,6 +79,7 @@ public class BoardUIManager : MonoBehaviour
             itemsPanel.SetActive(false);
             playerSelectPanel.SetActive(true);
             mapSelectionPanel.SetActive(false);
+            directionPanel.SetActive(false);
             sidemapControlPanel.SetActive(false);
         }
     }
@@ -89,6 +93,7 @@ public class BoardUIManager : MonoBehaviour
             itemsPanel.SetActive(false);
             playerSelectPanel.SetActive(false);
             mapSelectionPanel.SetActive(false);
+            directionPanel.SetActive(false);
             sidemapControlPanel.SetActive(false);
         }
     }
@@ -102,6 +107,21 @@ public class BoardUIManager : MonoBehaviour
             itemsPanel.SetActive(false);
             playerSelectPanel.SetActive(false);
             mapSelectionPanel.SetActive(true);
+            directionPanel.SetActive(false);
+            sidemapControlPanel.SetActive(false);
+        }
+    }
+
+    public void OpenDirectionPanel()
+    {
+        if (!directionPanel.activeInHierarchy)
+        {
+            mainPanel.SetActive(false);
+            dicePanel.SetActive(false);
+            itemsPanel.SetActive(false);
+            playerSelectPanel.SetActive(false);
+            mapSelectionPanel.SetActive(false);
+            directionPanel.SetActive(true);
             sidemapControlPanel.SetActive(false);
         }
     }

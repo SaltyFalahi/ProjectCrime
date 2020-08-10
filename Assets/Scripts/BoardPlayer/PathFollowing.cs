@@ -1,35 +1,54 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PathFollowing : MonoBehaviour
 {
+    public NumberRolled numberRolled;
+
+    public BoardUIManager bm;
+
     public List<Transform> tilePoints;
+    public List<Transform> rightPoints;
+    public List<Transform> leftPoints;
 
     public GameObject player;
 
     public float speed;
     public float reachDist;
+    
+    public int index = 0;
 
-    public List<Transform> reversePoints = new List<Transform>();
+    public bool isMoving;
+    public bool directionSpace;
 
     DiceRoller diceRoller;
     PlayerAbilities playerAbilities;
-
-    int index = 0;
-    int reverseIndex = 0;
+    TurnController turnController;
 
     void Start()
     {
-        diceRoller = GameObject.FindGameObjectWithTag("DiceObj").GetComponent<DiceRoller>();
+        diceRoller = GetComponent<DiceRoller>();
         playerAbilities = GetComponent<PlayerAbilities>();
+        turnController = GameObject.FindGameObjectWithTag("PlayerList").GetComponent<TurnController>();
     }
 
     void Update()
     {
+        if (tilePoints.Count <= index)
+        {
+            tilePoints.Clear();
+        }
+
         if (diceRoller.diceRolled && !playerAbilities.moneyMagnetIsActive)
         {
-            MovePlayer(diceRoller.numberRolled);
+            MovePlayer(numberRolled.value);
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
         }
     }
 
@@ -37,7 +56,7 @@ public class PathFollowing : MonoBehaviour
     {
         float dist = Vector3.Distance(tilePoints[index].position, transform.position);
 
-        if (!playerAbilities.isMoonwalk)
+        if (!directionSpace)
         {
             if (spacesToMove > 0)
             {
@@ -47,54 +66,32 @@ public class PathFollowing : MonoBehaviour
             {
                 diceRoller.diceRolled = false;
                 playerAbilities.getawayVanIsActive = false;
+                turnController.turnOver = true;
             }
 
             if (dist <= reachDist)
             {
                 index++;
-                diceRoller.numberRolled--;
-                reversePoints.Add(tilePoints[index]);
-
-                if (reversePoints.Count > 6)
-                {
-                    reversePoints.RemoveAt(0);
-                }
+                numberRolled.value--;
             }
         }
         else
         {
-            if (spacesToMove < 0)
-            {
-                Debug.Log("Moonwalking "+ spacesToMove);
-                reverseIndex = (spacesToMove * -1) - 1;
-                Debug.Log("REEEEE " + reverseIndex);
-                transform.position = Vector3.MoveTowards(transform.position, reversePoints[reverseIndex].position, Time.deltaTime * speed);
-            }
-            else if (spacesToMove >= 0)
-            {
-                Debug.Log("No longer Moonwalking");
-                playerAbilities.isMoonwalk = false;
-                diceRoller.diceRolled = false;
-            }
-
-            if (dist <= reachDist)
-            {
-                if (reversePoints.Count > 6)
-                {
-                    reversePoints.RemoveAt(0);
-                }
-
-                reverseIndex--;
-                index--;
-                Debug.Log(index);
-                diceRoller.numberRolled++;
-            }
-
-            if (reverseIndex > reversePoints.Count)
-            {
-                reversePoints.Clear();
-                reverseIndex = 0;
-            }
+            bm.OpenDirectionPanel();
         }
+    }
+
+    public void NewPoints(int index)
+    {
+        if (index <= 1)
+        {
+            tilePoints.AddRange(rightPoints);
+        }
+        else
+        {
+            tilePoints.AddRange(leftPoints);
+        }
+
+        directionSpace = false;
     }
 }

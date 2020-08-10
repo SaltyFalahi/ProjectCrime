@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using SocketIO;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Joystick : MonoBehaviour
 {
+    public SocketIOComponent soc;
+
     public Transform circle;
     public Transform Outercircle;
 
@@ -50,6 +53,10 @@ public class Joystick : MonoBehaviour
     void MoveCharacter(Vector2 dir)
     {
         //Send Direction to Server
+        JSONObject jdata = new JSONObject();
+        jdata.AddField("X", dir.x);
+        jdata.AddField("Y", dir.y);
 
+        soc.Emit("Input Direction", jdata);
     }
 }

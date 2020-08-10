@@ -16,6 +16,9 @@ TagManager:
   - MinigameManager
   - Cop
   - Platform
+  - Board
+  - BoardController
+  - BoardData
   layers:
   - Default
   - TransparentFX

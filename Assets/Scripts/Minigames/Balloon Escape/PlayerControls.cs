@@ -16,6 +16,8 @@ public class PlayerControls : MonoBehaviour
 
     public player type;
 
+    public float score;
+
     public bool isPopped = false;
 
     float pumpScale = 0.025f;
@@ -23,25 +25,22 @@ public class PlayerControls : MonoBehaviour
     float pumpMid = 2.5f;
     float pumpQuart = 1.5f;
 
-    int playersLeft = 4;
-
     string pump;
 
     Vector3 scaleObj;
 
-    // Start is called before the first frame update
     void Start()
     {
         GetPlayer();
         scaleObj = new Vector3(pumpScale, pumpScale, pumpScale);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown(pump))
         {
             balloon.transform.localScale += scaleObj;
+            score = balloon.transform.localScale.x;
 
             if (balloon.transform.localScale.x >= pumpMid)
             {
@@ -60,6 +59,7 @@ public class PlayerControls : MonoBehaviour
             isPopped = true;
             Destroy(balloon);
             pumpScale = 0;
+            score = 0;
         }
     }
 

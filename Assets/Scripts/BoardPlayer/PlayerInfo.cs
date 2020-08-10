@@ -47,5 +47,10 @@ public class PlayerInfo : MonoBehaviour
         {
             itemsLeft = sneakers + rocketShoes + shovel + thiefGloves + moneyMags + moonwalkShoes + iKnowAGuy + getawayVan + ironBall;
         }
+
+        if(bucks <= 0)
+        {
+            bucks = 0;
+        }
     }
 }
