@@ -37,12 +37,12 @@ public class PrisonWallEscapeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pickWindows1();
-        pickWindows2();
-        pickWindows3();
-        pickWindows4();
-        pickWindows5();
-        pickWindows6();
+        PickWindows1();
+        PickWindows2();
+        PickWindows3();
+        PickWindows4();
+        PickWindows5();
+        PickWindows6();
     }
 
     // Update is called once per frame
@@ -58,7 +58,7 @@ public class PrisonWallEscapeManager : MonoBehaviour
         }
     }
 
-    void pickWindows1()
+    void PickWindows1()
     {
         int windowPicked1 = Random.Range(1, 3);
         int windowPicked2 = Random.Range(3, 5);
@@ -78,7 +78,7 @@ public class PrisonWallEscapeManager : MonoBehaviour
         windowRow1[windowPicked4].GetComponent<BoxCollider>().enabled = true;
     }
 
-    void pickWindows2()
+    void PickWindows2()
     {
         int windowPicked1 = Random.Range(1, 3);
         int windowPicked2 = Random.Range(3, 5);
@@ -98,7 +98,7 @@ public class PrisonWallEscapeManager : MonoBehaviour
         windowRow2[windowPicked4].GetComponent<BoxCollider>().enabled = true;
     }
 
-    void pickWindows3()
+    void PickWindows3()
     {
         int windowPicked1 = Random.Range(1, 3);
         int windowPicked2 = Random.Range(3, 5);
@@ -118,7 +118,7 @@ public class PrisonWallEscapeManager : MonoBehaviour
         windowRow3[windowPicked4].GetComponent<BoxCollider>().enabled = true;
     }
 
-    void pickWindows4()
+    void PickWindows4()
     {
         int windowPicked1 = Random.Range(1, 3);
         int windowPicked2 = Random.Range(3, 5);
@@ -142,7 +142,7 @@ public class PrisonWallEscapeManager : MonoBehaviour
         windowRow4[windowPicked5].GetComponent<BoxCollider>().enabled = true;
     }
 
-    void pickWindows5()
+    void PickWindows5()
     {
         int windowPicked1 = Random.Range(1, 3);
         int windowPicked2 = Random.Range(3, 5);
@@ -166,7 +166,7 @@ public class PrisonWallEscapeManager : MonoBehaviour
         windowRow6[windowPicked5].GetComponent<BoxCollider>().enabled = true;
     }
 
-    void pickWindows6()
+    void PickWindows6()
     {
         int windowPicked1 = Random.Range(1, 3);
         int windowPicked2 = Random.Range(3, 5);
