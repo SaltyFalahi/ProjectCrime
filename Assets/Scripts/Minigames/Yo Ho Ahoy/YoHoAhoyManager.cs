@@ -14,7 +14,7 @@ public class YoHoAhoyManager : MonoBehaviour
     public bool cooldownRound = false;
     //public bool allHidersDone = false;
     
-    public int playersPicking = 3;
+    public int hidersPicking = 3;
     public int picksLeft = 3;
 
     [SerializeField]
@@ -49,13 +49,13 @@ public class YoHoAhoyManager : MonoBehaviour
         roundTypeTimer.text = roundTimer.ToString("00" + "s");
         pickLeftText.text = picksLeft.ToString("0");
 
-        if (playersPicking <= 0 || roundTimer <= 0 && !pickingRound && hidingRound && !cooldownRound)
+        if (hidersPicking <= 0 || roundTimer <= 0 && !pickingRound && hidingRound && !cooldownRound)
         {
             roundTimer = cooldownTimer;
 
             roundTypeText.text = cRound;
 
-            playersPicking = 3;
+            hidersPicking = 3;
 
             hidingRound = false;
             cooldownRound = true;
