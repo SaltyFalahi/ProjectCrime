@@ -18,13 +18,6 @@ public class ButtonToPress : MonoBehaviour
 
     string[] buttons = new string[] { "A", "B", "X", "Y" };
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (countdown <= 5 && coolDown >= 10)

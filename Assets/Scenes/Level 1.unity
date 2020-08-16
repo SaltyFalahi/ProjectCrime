@@ -2003,6 +2003,7 @@ MonoBehaviour:
   bd: {fileID: 337412889}
   minigames:
   - m_Handle: 2
+  - m_Handle: 3
   turn: 1
   turnOver: 0
 --- !u!1 &250068043

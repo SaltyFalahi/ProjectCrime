@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CopsAndRobbersMovement : MonoBehaviour
+public class TNTFactoryMovement : MonoBehaviour
 {
     public enum player
     {
@@ -14,15 +14,17 @@ public class CopsAndRobbersMovement : MonoBehaviour
 
     public player type;
 
-    public bool cops;
-    public bool copsWin = false;
-
     public int moveSpeed;
+
+    TNT block;
 
     Rigidbody rb;
 
     string movementH;
     string movementV;
+    string drop;
+
+    bool carrying;
 
     void Start()
     {
@@ -34,13 +36,13 @@ public class CopsAndRobbersMovement : MonoBehaviour
     {
         Vector3 movement = new Vector3(Input.GetAxis(movementH), 0, Input.GetAxis(movementV));
 
-        if (!cops)
+        rb.AddForce(movement * moveSpeed);
+
+        if (Input.GetButtonDown(drop))
         {
-            rb.MovePosition(transform.position + movement * moveSpeed * Time.deltaTime);
-        }
-        else
-        {
-            rb.AddForce(movement * moveSpeed);
+            block.parent = null;
+            block.GetComponent<Rigidbody>().useGravity = true;
+            carrying = false;
         }
     }
 
@@ -51,34 +53,37 @@ public class CopsAndRobbersMovement : MonoBehaviour
             case player.P1:
                 movementH = "P1Horizontal";
                 movementV = "P1Vertical";
+                drop = "P1Fire1";
                 break;
 
             case player.P2:
                 movementH = "P2Horizontal";
                 movementV = "P2Vertical";
+                drop = "P2Fire1";
                 break;
 
             case player.P3:
                 movementH = "P3Horizontal";
                 movementV = "P3Vertical";
+                drop = "P3Fire1";
                 break;
 
             case player.P4:
                 movementH = "P4Horizontal";
                 movementV = "P4Vertical";
+                drop = "P4Fire1";
                 break;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player 1"))
+        if (other.CompareTag("T") && !carrying || other.CompareTag("N") && !carrying)
         {
-            moveSpeed = 0;
-
-            copsWin = true;
-
-            Destroy(other.gameObject);
+            block = other.gameObject.GetComponent<TNT>();
+            block.parent = gameObject.transform;
+            block.GetComponent<Rigidbody>().useGravity = false;
+            carrying = true;
         }
     }
 }

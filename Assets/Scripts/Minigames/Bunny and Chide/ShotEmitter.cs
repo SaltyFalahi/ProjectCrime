@@ -6,11 +6,7 @@ using TMPro;
 
 public class ShotEmitter : MonoBehaviour
 {
-    public Button AddBtn;
-    public Button ReduceBtn;
-
-    public GameObject winText;
-    public GameObject loseText;
+    public bool done;
 
     AudioSource shotAudio;
 
@@ -23,14 +19,11 @@ public class ShotEmitter : MonoBehaviour
 
     void Start()
     {
-        AddBtn.interactable = false;
-        ReduceBtn.interactable = false;
-
         shotAudio = GetComponent<AudioSource>();
 
         shotTimer = Random.Range(1, 6);
 
-        shotsToFire = Random.Range(5, 11);
+        shotsToFire = Random.Range(3, 11);
         shotsFired = shotsToFire;
         Debug.Log(shotsFired);
 
@@ -43,8 +36,7 @@ public class ShotEmitter : MonoBehaviour
     {
         if (shotsToFire <= 0)
         {
-            AddBtn.interactable = true;
-            ReduceBtn.interactable = true;
+            done = true;
         }
     }
 
@@ -61,7 +53,6 @@ public class ShotEmitter : MonoBehaviour
 
     public int SetShotCount()
     {
-        Debug.Log(shotsFired);
         return shotsFired;
     }
 }

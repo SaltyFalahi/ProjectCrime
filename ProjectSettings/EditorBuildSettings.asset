@@ -14,6 +14,30 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/Balloon Escape.unity
     guid: 5c81455d020aedd43a0179ceb7360eee
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Bunny and Chide.unity
+    guid: 187e43497994d414cac7d9f7e98ea97b
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Cops And Robbers.unity
+    guid: ea698d7adf301834ab858a2d53cf481d
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Hot Potato.unity
+    guid: 0dd551f94b6e7094b9db5ef72d37e957
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Prison Wall Escape.unity
+    guid: 58793aab895e20a4583761ef65c3408f
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Reactive Alarm.unity
+    guid: 65d5dafd038af5949a014c894b1368d7
+  - enabled: 1
+    path: Assets/Scenes/Minigames/TNT Factory.unity
+    guid: 285fc053a6229f0419611f616514ecd2
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Yo Ho Ahoy.unity
+    guid: 64dd0a127018bc343b7e5239611842d6
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Falling To Crime.unity
+    guid: 5a4cc3fe92fd5344591db7a0a9251d6b
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: e7650954d799c2a478fe91fd03ebe486,
       type: 2}
