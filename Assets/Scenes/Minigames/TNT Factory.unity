@@ -747,6 +747,11 @@ PrefabInstance:
       propertyPath: guide
       value: 
       objectReference: {fileID: 1861549348}
+    - target: {fileID: -6172528620395136985, guid: d79855d2575749642bf482a859ae73c5,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 2602463061027763419, guid: d79855d2575749642bf482a859ae73c5,
         type: 3}
       propertyPath: m_Name
@@ -1527,6 +1532,11 @@ PrefabInstance:
       propertyPath: guide
       value: 
       objectReference: {fileID: 1543231868}
+    - target: {fileID: -6172528620395136985, guid: d79855d2575749642bf482a859ae73c5,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 2602463061027763419, guid: d79855d2575749642bf482a859ae73c5,
         type: 3}
       propertyPath: m_Name
@@ -1859,6 +1869,11 @@ PrefabInstance:
       propertyPath: guide
       value: 
       objectReference: {fileID: 1929087341}
+    - target: {fileID: -6172528620395136985, guid: d79855d2575749642bf482a859ae73c5,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 2602463061027763419, guid: d79855d2575749642bf482a859ae73c5,
         type: 3}
       propertyPath: m_Name
@@ -2255,6 +2270,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_UseGravity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6172528620395136985, guid: d79855d2575749642bf482a859ae73c5,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 973382537457066552, guid: d79855d2575749642bf482a859ae73c5,
         type: 3}

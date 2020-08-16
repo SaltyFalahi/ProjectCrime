@@ -6,9 +6,11 @@ public class TNT : MonoBehaviour
 {
     public Transform parent;
 
+    public bool isBeingCarried;
+
     void Start()
     {
-        
+        isBeingCarried = false;
     }
 
     void Update()

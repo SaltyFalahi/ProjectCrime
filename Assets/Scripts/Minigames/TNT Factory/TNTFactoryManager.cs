@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TNTFactory : MonoBehaviour
+public class TNTFactoryManager : MonoBehaviour
 {
     public Standing standing;
 
