@@ -16,7 +16,6 @@ public class ShotEmitter : MonoBehaviour
 
     IEnumerator coroutine;
 
-    float countdown = 5; //will be used for button activation and deactivation
     float shotTimer;
 
     int shotsToFire;

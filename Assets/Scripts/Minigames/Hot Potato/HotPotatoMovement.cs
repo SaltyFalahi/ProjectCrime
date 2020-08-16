@@ -14,11 +14,18 @@ public class HotPotatoMovement : MonoBehaviour
 
     public player type;
 
-    public HotPotato instance;
+    public HotPotatoManager instance;
 
     public int moveSpeed;
 
     Rigidbody rb;
+
+    [SerializeField]
+    bool canReceiveBomb;
+    [SerializeField]
+    bool hasGivenBomb;
+    [SerializeField]
+    bool hasBomb;
 
     string movementH;
     string movementV;
@@ -34,6 +41,18 @@ public class HotPotatoMovement : MonoBehaviour
         Vector3 movement = new Vector3(Input.GetAxis(movementH), 0, Input.GetAxis(movementV));
 
         rb.MovePosition(transform.position + movement * moveSpeed * Time.deltaTime);
+
+        if (instance.player == gameObject)
+        {
+            canReceiveBomb = false;
+            hasGivenBomb = false;
+            hasBomb = true;
+        }
+        else
+        {
+            hasGivenBomb = true;
+            hasBomb = false;
+        }
     }
 
     void GetPlayer()
@@ -62,12 +81,23 @@ public class HotPotatoMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (instance.player == gameObject && other.CompareTag("Player"))
+        if (instance.player == gameObject && collision.gameObject.CompareTag("Player") && hasBomb)
         {
             Debug.Log("hi");
-            instance.PassBomb(other.gameObject);
+
+            instance.PassBomb(collision.gameObject);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player") && !canReceiveBomb && hasGivenBomb)
+        {
+            Debug.Log("oh no");
+
+            canReceiveBomb = true;
         }
     }
 }

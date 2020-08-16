@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 354883552}
   - component: {fileID: 354883553}
   m_Layer: 0
-  m_Name: GameController
+  m_Name: BunnyMinigameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

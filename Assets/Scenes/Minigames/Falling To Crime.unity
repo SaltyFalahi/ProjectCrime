@@ -417,8 +417,8 @@ GameObject:
   - component: {fileID: 276135397}
   - component: {fileID: 276135398}
   m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
+  m_Name: MinigameManager
+  m_TagString: MinigameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -461,7 +461,7 @@ MonoBehaviour:
   - {fileID: 1211965044}
   - {fileID: 661485346}
   - {fileID: 1112111300}
-  timer: 3
+  timer: 0
 --- !u!4 &276135396
 Transform:
   m_ObjectHideFlags: 0
@@ -2456,7 +2456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   moveSpeed: 25
-  jumpForce: 5
+  jumpForce: 20
 --- !u!1001 &1243406060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2809,7 +2809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   moveSpeed: 25
-  jumpForce: 5
+  jumpForce: 20
 --- !u!1001 &1784410835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2945,7 +2945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   moveSpeed: 25
-  jumpForce: 5
+  jumpForce: 20
 --- !u!1001 &1874515233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3331,7 +3331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   moveSpeed: 25
-  jumpForce: 5
+  jumpForce: 20
 --- !u!1001 &2090523509
 PrefabInstance:
   m_ObjectHideFlags: 0

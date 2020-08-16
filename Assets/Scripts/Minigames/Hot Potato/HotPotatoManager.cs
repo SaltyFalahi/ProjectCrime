@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HotPotato : MonoBehaviour
+public class HotPotatoManager : MonoBehaviour
 {
     public List<GameObject> players;
 
@@ -10,6 +10,9 @@ public class HotPotato : MonoBehaviour
     public GameObject player;
 
     public float timer;
+
+    [SerializeField]
+    float bombOffset;
 
     float countdown;
 
@@ -30,7 +33,8 @@ public class HotPotato : MonoBehaviour
             SpawnBomb();
         }
 
-        bomb.transform.position = new Vector3(player.transform.position.x, 3, player.transform.position.z);
+        bomb.transform.position = transform.forward + new Vector3(player.transform.position.x, 
+            player.transform.position.y, player.transform.position.z + bombOffset);
     }
 
     void SpawnBomb()
@@ -43,6 +47,9 @@ public class HotPotato : MonoBehaviour
         else
         {
             player = players[0];
+
+            countdown = 100;
+
             Debug.Log(player.name + " Won");
         }
     }

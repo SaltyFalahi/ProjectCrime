@@ -16,6 +16,8 @@ public class BalloonEscapeManager : MonoBehaviour
 
     public float timer;
 
+    public int playerCount = 4;
+
     float countdown;
 
     void Start()
@@ -27,7 +29,7 @@ public class BalloonEscapeManager : MonoBehaviour
 
     void Update()
     {
-        if (countdown <= 60 && countdown >= 0)
+        if (countdown <= 60 && countdown >= 0 && playerCount >= 0)
         {
             countdown -= Time.deltaTime;
         }
