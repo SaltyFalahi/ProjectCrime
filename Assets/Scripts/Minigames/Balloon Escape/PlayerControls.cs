@@ -17,13 +17,11 @@ public class PlayerControls : MonoBehaviour
     public player type;
 
     public float score;
+    public float pumpLimit = 3;
 
     public bool isPopped = false;
 
-    BalloonEscapeManager bEM;
-
     float pumpScale = 0.025f;
-    float pumpLimit = 3;
     float pumpMid = 2.5f;
     float pumpQuart = 1.5f;
 
@@ -33,10 +31,7 @@ public class PlayerControls : MonoBehaviour
 
     void Start()
     {
-        bEM = GameObject.FindGameObjectWithTag("MinigameManager").GetComponent<BalloonEscapeManager>();
-
         GetPlayer();
-
         scaleObj = new Vector3(pumpScale, pumpScale, pumpScale);
     }
 
@@ -61,7 +56,6 @@ public class PlayerControls : MonoBehaviour
 
         if (balloon.transform.localScale.x >= pumpLimit)
         {
-            bEM.playerCount--;
             isPopped = true;
             Destroy(balloon);
             pumpScale = 0;

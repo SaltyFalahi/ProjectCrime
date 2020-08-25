@@ -72,28 +72,28 @@ public class YoHoPlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown(buttonA) && !hasPicked)
             {
-                yHAM.hidersPicking--;
+                yHAM.playersPicking--;
                 hasPicked = true;
                 yHAM.cannon1Players.Add(gameObject);
             }
 
             if (Input.GetButtonDown(buttonB) && !hasPicked)
             {
-                yHAM.hidersPicking--;
+                yHAM.playersPicking--;
                 hasPicked = true;
                 yHAM.cannon2Players.Add(gameObject);
             }
 
             if (Input.GetButtonDown(buttonX) && !hasPicked)
             {
-                yHAM.hidersPicking--;
+                yHAM.playersPicking--;
                 hasPicked = true;
                 yHAM.cannon3Players.Add(gameObject);
             }
 
             if (Input.GetButtonDown(buttonY) && !hasPicked)
             {
-                yHAM.hidersPicking--;
+                yHAM.playersPicking--;
                 hasPicked = true;
                 yHAM.cannon4Players.Add(gameObject);
             }
@@ -125,7 +125,7 @@ public class YoHoPlayerController : MonoBehaviour
                         break;
                 }
 
-                yHAM.hidersPicking = 0;
+                yHAM.playersPicking = 0;
             }
         }
     }

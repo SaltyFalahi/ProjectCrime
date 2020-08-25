@@ -6,17 +6,18 @@ public class RafterManager : MonoBehaviour
 {
     public List<GameObject> placesList;
 
-    public int index = 0;
+    public List<RafterPlayerController> players;
 
-    // Start is called before the first frame update
+    public int index = 0;
+    public int rIndex = 4;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

@@ -5,6 +5,8 @@ using TMPro;
 
 public class YoHoAhoyManager : MonoBehaviour
 {
+    public Standing standing;
+
     public TextMeshProUGUI roundTypeText;
     public TextMeshProUGUI roundTypeTimer;
     public TextMeshProUGUI pickLeftText;
@@ -14,7 +16,7 @@ public class YoHoAhoyManager : MonoBehaviour
     public bool cooldownRound = false;
     //public bool allHidersDone = false;
     
-    public int hidersPicking = 3;
+    public int playersPicking = 3;
     public int picksLeft = 3;
 
     [SerializeField]
@@ -35,13 +37,11 @@ public class YoHoAhoyManager : MonoBehaviour
     string pRound = "Picking Round";
     string cRound = "Cooldown Round";
 
-    // Start is called before the first frame update
     void Start()
     {
         roundTypeText.text = hRound;
     }
 
-    // Update is called once per frame
     void Update()
     {
         roundTimer -= Time.deltaTime;
@@ -49,13 +49,13 @@ public class YoHoAhoyManager : MonoBehaviour
         roundTypeTimer.text = roundTimer.ToString("00" + "s");
         pickLeftText.text = picksLeft.ToString("0");
 
-        if (hidersPicking <= 0 || roundTimer <= 0 && !pickingRound && hidingRound && !cooldownRound)
+        if (playersPicking <= 0 || roundTimer <= 0 && !pickingRound && hidingRound && !cooldownRound)
         {
             roundTimer = cooldownTimer;
 
             roundTypeText.text = cRound;
 
-            hidersPicking = 3;
+            playersPicking = 3;
 
             hidingRound = false;
             cooldownRound = true;
@@ -82,13 +82,20 @@ public class YoHoAhoyManager : MonoBehaviour
 
         if (playersCaught.Count >= 3 && picksLeft != 0)
         {
-            //seeker wins
+            standing.p1 = 1;
+            standing.p2 = 0;
+            standing.p3 = 0;
+            standing.p4 = 0;
         }
 
         if (picksLeft <= 0 && playersCaught.Count != 3)
         {
             picksLeft = 0;
-            //hiders win
+
+            standing.p1 = 0;
+            standing.p2 = 1;
+            standing.p3 = 1;
+            standing.p4 = 1;
         }
     }
 }

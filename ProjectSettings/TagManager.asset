@@ -19,6 +19,7 @@ TagManager:
   - Board
   - BoardController
   - BoardData
+  - SkyboxCamera
   layers:
   - Default
   - TransparentFX
@@ -28,8 +29,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Dice
+  - Player
   - 
   - 
   - 

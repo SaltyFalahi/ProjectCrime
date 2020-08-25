@@ -42,6 +42,7 @@ public class TNTFactoryMovement : MonoBehaviour
         {
             block.parent = null;
             block.GetComponent<Rigidbody>().useGravity = true;
+            block.isBeingCarried = false;
             carrying = false;
         }
     }
@@ -81,9 +82,13 @@ public class TNTFactoryMovement : MonoBehaviour
         if (other.CompareTag("T") && !carrying || other.CompareTag("N") && !carrying)
         {
             block = other.gameObject.GetComponent<TNT>();
-            block.parent = gameObject.transform;
-            block.GetComponent<Rigidbody>().useGravity = false;
-            carrying = true;
+            if (!block.isBeingCarried)
+            {
+                block.parent = gameObject.transform;
+                block.GetComponent<Rigidbody>().useGravity = false;
+                block.isBeingCarried = true;
+                carrying = true;
+            }
         }
     }
 }

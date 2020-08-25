@@ -14,6 +14,8 @@ public class RafterPlayerController : MonoBehaviour
 
     public player type;
 
+    public Standing standing;
+
     RafterManager rMan;
 
     Rigidbody rb;
@@ -35,7 +37,6 @@ public class RafterPlayerController : MonoBehaviour
     string movementH;
     string movementV;
 
-    // Start is called before the first frame update
     void Start()
     {
         rMan = GameObject.FindGameObjectWithTag("MinigameManager").GetComponent<RafterManager>();
@@ -43,7 +44,6 @@ public class RafterPlayerController : MonoBehaviour
         GetPlayer();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!isDead)
@@ -110,6 +110,14 @@ public class RafterPlayerController : MonoBehaviour
             transform.position = rMan.placesList[rMan.index].transform.position;
             transform.rotation = rMan.placesList[rMan.index].transform.rotation;
             rMan.index++;
+        }
+
+        if (other.CompareTag("Cop"))
+        {
+            isDead = true;
+            transform.position = rMan.placesList[rMan.rIndex].transform.position;
+            transform.rotation = rMan.placesList[rMan.rIndex].transform.rotation;
+            rMan.rIndex--;
         }
     }
 }

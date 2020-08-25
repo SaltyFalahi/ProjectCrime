@@ -14,6 +14,8 @@ public class FallingPlayerController : MonoBehaviour
 
     public player type;
 
+    public int score;
+
     Rigidbody rb;
 
     [SerializeField]
@@ -28,14 +30,12 @@ public class FallingPlayerController : MonoBehaviour
     string movementH;
     string movementV;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         GetPlayer();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 movement = new Vector3(Input.GetAxis(movementH), 0, Input.GetAxis(movementV));
