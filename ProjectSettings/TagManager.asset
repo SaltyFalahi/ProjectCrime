@@ -19,6 +19,10 @@ TagManager:
   - Board
   - BoardController
   - BoardData
+  - LConsole
+  - RConsole
+  - Bomb
+  - Conveyor
   layers:
   - Default
   - TransparentFX
