@@ -19,6 +19,7 @@ public class PathFollowing : MonoBehaviour
     public float reachDist;
     
     public int index = 0;
+    public int path;
 
     public bool isMoving;
     public bool directionSpace;

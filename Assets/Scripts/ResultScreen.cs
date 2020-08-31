@@ -52,7 +52,7 @@ public class ResultScreen : MonoBehaviour
 
     public void Button()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene(0);
         bc.loaded = false;
     }
 }

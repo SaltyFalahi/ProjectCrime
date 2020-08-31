@@ -36,9 +36,12 @@ public class BoardController : MonoBehaviour
 
     void Update()
     {
-        bd = GameObject.FindGameObjectWithTag("BoardData").GetComponent<BoardData>();
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            bd = GameObject.FindGameObjectWithTag("BoardData").GetComponent<BoardData>();
+        }
 
-        if (SceneManager.GetActiveScene().buildIndex == 0 && !loaded)
+        if (!loaded)
         {
             bd.LoadPlayers();
             loaded = true;
@@ -48,8 +51,6 @@ public class BoardController : MonoBehaviour
     void ResetScriptableObjects()
     {
         dice.value = 0;
-
-        p1.tilePoints.Clear();
 
         p1.position = new Vector3((float)-2.85, (float)1.28, (float)-12.7);
 
@@ -65,8 +66,6 @@ public class BoardController : MonoBehaviour
         p1.iKnowAGuy = 0;
         p1.ironBall = 0;
         p1.index = 0;
-
-        p1.tilePoints.Clear();
 
         p2.position = new Vector3((float)3.15, (float)1.28, (float)-12.7);
          

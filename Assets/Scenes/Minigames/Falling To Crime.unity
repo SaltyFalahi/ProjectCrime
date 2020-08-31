@@ -494,6 +494,9 @@ MonoBehaviour:
   - {fileID: 909632062}
   - {fileID: 630917464}
   - {fileID: 8296172667680413984}
+  players: []
+  p1: {fileID: 1724559720}
+  p2: {fileID: 1242161655}
   timer: 3
 --- !u!4 &276135396
 Transform:
@@ -2318,6 +2321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  score: 0
   moveSpeed: 25
   jumpForce: 5
 --- !u!1001 &1243406060
@@ -2671,6 +2675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  score: 0
   moveSpeed: 25
   jumpForce: 5
 --- !u!1001 &1784410835

@@ -5,8 +5,6 @@ using UnityEngine;
 [CreateAssetMenu]
 public class PlayerData : ScriptableObject
 {
-    public List<Vector3> tilePoints;
-
     public Vector3 position;
 
     public int bucks;
@@ -21,4 +19,5 @@ public class PlayerData : ScriptableObject
     public int iKnowAGuy;
     public int ironBall;
     public int index;
+    public int path;
 }

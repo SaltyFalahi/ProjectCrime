@@ -49,11 +49,6 @@ public class BoardData : MonoBehaviour
         player1.index = pf1.index;
         player1.position = pf1.gameObject.transform.position;
 
-        for (int i = 0; i < pf1.tilePoints.Count; i++)
-        {
-            player1.tilePoints.Add(pf1.tilePoints[i].position);
-        }
-
         player2.bucks = pi2.bucks;
         player2.diamonds = pi2.diamonds;
         player2.sneakers = pi2.sneakers;
@@ -67,11 +62,6 @@ public class BoardData : MonoBehaviour
         player2.ironBall = pi2.ironBall;
         player2.index = pf2.index;
         player2.position = pf2.gameObject.transform.position;
-
-        for (int i = 0; i < pf2.tilePoints.Count; i++)
-        {
-            player2.tilePoints.Add(pf2.tilePoints[i].position);
-        }
     }
 
     public void LoadPlayers()
@@ -91,13 +81,6 @@ public class BoardData : MonoBehaviour
         pf1.index = player1.index;
         pf1.gameObject.transform.position = player1.position;
 
-        for (int i = 0; i < player1.tilePoints.Count; i++)
-        {
-            GameObject temp = new GameObject();
-            temp.transform.position = new Vector3(player1.tilePoints[i].x, player1.tilePoints[i].y, player1.tilePoints[i].z);
-            pf1.tilePoints.Add(temp.transform);
-        }
-
         pi2.bucks = player2.bucks;
         pi2.diamonds = player2.diamonds;
         pi2.sneakers = player2.sneakers;
@@ -111,12 +94,5 @@ public class BoardData : MonoBehaviour
         pi2.ironBall = player2.ironBall;
         pf2.index = player2.index;
         pf2.gameObject.transform.position = player2.position;
-
-        for (int i = 0; i < player2.tilePoints.Count; i++)
-        {
-            GameObject temp = new GameObject();
-            temp.transform.position = new Vector3(player2.tilePoints[i].x, player2.tilePoints[i].y, player2.tilePoints[i].z);
-            pf2.tilePoints.Add(temp.transform);
-        }
     }
 }
