@@ -38,6 +38,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/Falling To Crime.unity
     guid: 5a4cc3fe92fd5344591db7a0a9251d6b
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: cdd5bb20332d48140b4401e882ebba3a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: e7650954d799c2a478fe91fd03ebe486,
       type: 2}
