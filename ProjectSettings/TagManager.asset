@@ -19,7 +19,10 @@ TagManager:
   - Board
   - BoardController
   - BoardData
-  - SkyboxCamera
+  - LConsole
+  - RConsole
+  - Bomb
+  - Conveyor
   layers:
   - Default
   - TransparentFX
@@ -29,8 +32,8 @@ TagManager:
   - UI
   - 
   - 
-  - Dice
-  - Player
+  - 
+  - 
   - 
   - 
   - 

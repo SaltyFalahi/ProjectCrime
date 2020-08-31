@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class BoardUIManager : MonoBehaviour
 {
@@ -12,23 +12,39 @@ public class BoardUIManager : MonoBehaviour
     public GameObject boardTopMapCamPoint;
 
     //panels
-    public GameObject mainPanel;
     public GameObject dicePanel;
-    public GameObject itemsPanel;
-    public GameObject playerSelectPanel;    
-    public GameObject mapSelectionPanel;
     public GameObject directionPanel;
+    public GameObject itemsPanel;
+    public GameObject pausePanel;
+    public GameObject playerSelectPanel;    
+    public GameObject mainPanel;
+    public GameObject mapSelectionPanel;
     public GameObject sidemapControlPanel;
 
-    float speed;
+    //first panel buttons
+    public GameObject pauseFirstButton;
+    public GameObject mainFirstButton;
+    public GameObject diceFirstButton;
+    public GameObject itemFirstButton;
+    public GameObject playerSelectFirstButton;
+    public GameObject mapSelectFirstButton;
+    public GameObject directionFirstButton;
 
     bool camIsPlayer = true;
     bool camIsSide = false;
     bool camIsTop = false;
 
+    float speed;
+
+    void Start()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(mainFirstButton);
+    }
+
     void Update()
     {
-        if (camIsPlayer)
+        if (camIsPlayer || !mapSelectionPanel.activeInHierarchy)
         {
             ReturnToPlayerCamMode();
         }
@@ -40,47 +56,34 @@ public class BoardUIManager : MonoBehaviour
         {
             ChangeToTopCamMode();
         }
-    }
 
-    public void OpenDicePanel()
-    {
-        if (!dicePanel.activeInHierarchy)
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause"))
         {
-            mainPanel.SetActive(false);
-            dicePanel.SetActive(true);
-            itemsPanel.SetActive(false);
-            playerSelectPanel.SetActive(false);
-            mapSelectionPanel.SetActive(false);
-            directionPanel.SetActive(false);
-            sidemapControlPanel.SetActive(false);
+            OpenClosePauseMenu();
         }
     }
 
-    public void OpenItemsPanel()
+    public void OpenClosePauseMenu()
     {
-        if (!itemsPanel.activeInHierarchy)
-        {
-            mainPanel.SetActive(false);
-            dicePanel.SetActive(false);
-            itemsPanel.SetActive(true);
-            playerSelectPanel.SetActive(false);
-            mapSelectionPanel.SetActive(false);
-            directionPanel.SetActive(false);
-            sidemapControlPanel.SetActive(false);
-        }
-    }
-
-    public void OpenPlayerSelectPanel()
-    {
-        if (!playerSelectPanel.activeInHierarchy)
+        if (!pausePanel.activeInHierarchy)
         {
             mainPanel.SetActive(false);
             dicePanel.SetActive(false);
             itemsPanel.SetActive(false);
-            playerSelectPanel.SetActive(true);
+            pausePanel.SetActive(true);
+            playerSelectPanel.SetActive(false);
             mapSelectionPanel.SetActive(false);
             directionPanel.SetActive(false);
             sidemapControlPanel.SetActive(false);
+
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(pauseFirstButton);
+        }
+        else
+        {
+            pausePanel.SetActive(false);
+
+            OpenMainPanel();
         }
     }
 
@@ -95,6 +98,60 @@ public class BoardUIManager : MonoBehaviour
             mapSelectionPanel.SetActive(false);
             directionPanel.SetActive(false);
             sidemapControlPanel.SetActive(false);
+
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(mainFirstButton);
+        }
+    }
+
+    public void OpenDicePanel()
+    {
+        if (!dicePanel.activeInHierarchy)
+        {
+            mainPanel.SetActive(false);
+            dicePanel.SetActive(true);
+            itemsPanel.SetActive(false);
+            playerSelectPanel.SetActive(false);
+            mapSelectionPanel.SetActive(false);
+            directionPanel.SetActive(false);
+            sidemapControlPanel.SetActive(false);
+
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(diceFirstButton);
+        }
+    }
+
+    public void OpenItemsPanel()
+    {
+        if (!itemsPanel.activeInHierarchy)
+        {
+            mainPanel.SetActive(false);
+            dicePanel.SetActive(false);
+            itemsPanel.SetActive(true);
+            playerSelectPanel.SetActive(false);
+            mapSelectionPanel.SetActive(false);
+            directionPanel.SetActive(false);
+            sidemapControlPanel.SetActive(false);
+
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(itemFirstButton);
+        }
+    }
+
+    public void OpenPlayerSelectPanel()
+    {
+        if (!playerSelectPanel.activeInHierarchy)
+        {
+            mainPanel.SetActive(false);
+            dicePanel.SetActive(false);
+            itemsPanel.SetActive(false);
+            playerSelectPanel.SetActive(true);
+            mapSelectionPanel.SetActive(false);
+            directionPanel.SetActive(false);
+            sidemapControlPanel.SetActive(false);
+
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(playerSelectFirstButton);
         }
     }
 
@@ -109,6 +166,9 @@ public class BoardUIManager : MonoBehaviour
             mapSelectionPanel.SetActive(true);
             directionPanel.SetActive(false);
             sidemapControlPanel.SetActive(false);
+
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(mapSelectFirstButton);
         }
     }
 
@@ -123,6 +183,9 @@ public class BoardUIManager : MonoBehaviour
             mapSelectionPanel.SetActive(false);
             directionPanel.SetActive(true);
             sidemapControlPanel.SetActive(false);
+
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(directionFirstButton);
         }
     }
 

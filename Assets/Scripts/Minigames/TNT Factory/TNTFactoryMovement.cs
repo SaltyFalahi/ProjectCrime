@@ -82,6 +82,7 @@ public class TNTFactoryMovement : MonoBehaviour
         if (other.CompareTag("T") && !carrying || other.CompareTag("N") && !carrying)
         {
             block = other.gameObject.GetComponent<TNT>();
+
             if (!block.isBeingCarried)
             {
                 block.parent = gameObject.transform;
