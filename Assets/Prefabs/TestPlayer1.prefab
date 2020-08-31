@@ -159,7 +159,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c194916632edb7342b33ffbdf1f1b903, type: 2}
+  - {fileID: 2100000, guid: c39d2111720264c4ebcd8288690dd072, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -260,16 +260,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerList: []
-  bucks: 0
+  bucks: 10
   diamonds: 0
   itemsLeft: 0
-  sneakers: 0
-  rocketShoes: 0
+  sneakers: 1
+  rocketShoes: 1
   moonwalkShoes: 0
-  getawayVan: 0
+  getawayVan: 1
   shovel: 0
-  moneyMags: 0
-  thiefGloves: 0
+  moneyMags: 1
+  thiefGloves: 1
   iKnowAGuy: 0
   ironBall: 0
 --- !u!114 &4630123927618294138
@@ -325,6 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 648bcdc418eb5dc45956d8e5593a0d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bUIM: {fileID: 0}
 --- !u!1 &4630123928452370062
 GameObject:
   m_ObjectHideFlags: 0

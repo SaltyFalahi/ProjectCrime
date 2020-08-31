@@ -2,39 +2,66 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class BoardUIManager : MonoBehaviour
 {
-    //camera
+    [Header("Camera Objects")]
     public GameObject boardCam;
     public GameObject boardPlayerCamPoint;
     public GameObject boardSideMapCamPoint;
     public GameObject boardTopMapCamPoint;
 
-    //panels
+    [Header("Panels")]
     public GameObject dicePanel;
     public GameObject directionPanel;
     public GameObject itemsPanel;
+    public GameObject itemShopPanel;
     public GameObject pausePanel;
     public GameObject playerSelectPanel;    
     public GameObject mainPanel;
     public GameObject mapSelectionPanel;
     public GameObject sidemapControlPanel;
 
-    //first panel buttons
-    public GameObject pauseFirstButton;
-    public GameObject mainFirstButton;
+    [Header("First Panel Buttons")]
     public GameObject diceFirstButton;
-    public GameObject itemFirstButton;
-    public GameObject playerSelectFirstButton;
-    public GameObject mapSelectFirstButton;
     public GameObject directionFirstButton;
+    public GameObject itemFirstButton;
+    public GameObject mainFirstButton;
+    public GameObject mapSelectFirstButton;
+    public GameObject pauseFirstButton;
+    public GameObject playerSelectFirstButton;
+    public GameObject shopFirstButton;
+
+    [Header("Texts")]
+    [SerializeField]
+    TextMeshProUGUI diamonds;
+    [SerializeField]
+    TextMeshProUGUI bucksLeft;
+    [SerializeField]
+    TextMeshProUGUI sneakersLeft;
+    [SerializeField]
+    TextMeshProUGUI glovesLeft;
+
+    [Header("Script Referencing")]
+    [SerializeField]
+    PlayerInfo pInfo;
+    [SerializeField]
+    PlayerColliders pCols;
 
     bool camIsPlayer = true;
     bool camIsSide = false;
     bool camIsTop = false;
 
     float speed;
+
+    [Header("Shop Costs")]
+    [SerializeField]
+    int sneakersCost;
+    [SerializeField]
+    int glovesCost;
+    [SerializeField]
+    int diamondCost;
 
     void Start()
     {
@@ -61,8 +88,49 @@ public class BoardUIManager : MonoBehaviour
         {
             OpenClosePauseMenu();
         }
+
+        diamonds.text = pInfo.diamonds.ToString("00");
+        bucksLeft.text = pInfo.bucks.ToString("00");
+        sneakersLeft.text = pInfo.sneakers.ToString("00");
+        glovesLeft.text = pInfo.thiefGloves.ToString("00");
+        
     }
 
+    public void SetShopFirstButton()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(shopFirstButton);
+    }
+
+    //item shop
+    public void BuySneakers()
+    {
+        if (pInfo.bucks >= sneakersCost)
+        {
+            pInfo.bucks -= sneakersCost;
+            pInfo.sneakers++;
+        }
+    }
+
+    public void BuyGloves()
+    {
+        if (pInfo.bucks >= glovesCost)
+        {
+            pInfo.bucks -= glovesCost;
+            pInfo.thiefGloves++;
+        }
+    }
+
+    public void BuyDiamond()
+    {
+        if (pInfo.bucks >= diamondCost)
+        {
+            pInfo.bucks -= diamondCost;
+            pInfo.diamonds++;
+        }
+    }
+
+    //panels
     public void OpenClosePauseMenu()
     {
         if (!pausePanel.activeInHierarchy)
@@ -94,6 +162,7 @@ public class BoardUIManager : MonoBehaviour
             mainPanel.SetActive(true);
             dicePanel.SetActive(false);
             itemsPanel.SetActive(false);
+            itemShopPanel.SetActive(false);
             playerSelectPanel.SetActive(false);
             mapSelectionPanel.SetActive(false);
             directionPanel.SetActive(false);
@@ -189,6 +258,7 @@ public class BoardUIManager : MonoBehaviour
         }
     }
 
+    //camera controls
     public void ReturnToPlayerCamMode()
     {
         camIsPlayer = true;

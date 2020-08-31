@@ -509,12 +509,21 @@ MonoBehaviour:
   boardPlayerCamPoint: {fileID: 1144466090}
   boardSideMapCamPoint: {fileID: 1712216204}
   boardTopMapCamPoint: {fileID: 1280611019}
-  mainPanel: {fileID: 843264756}
   dicePanel: {fileID: 989252356}
+  directionPanel: {fileID: 0}
   itemsPanel: {fileID: 1542067360}
+  pausePanel: {fileID: 0}
   playerSelectPanel: {fileID: 721389072}
+  mainPanel: {fileID: 843264756}
   mapSelectionPanel: {fileID: 1684592135}
   sidemapControlPanel: {fileID: 1895973743}
+  pauseFirstButton: {fileID: 0}
+  mainFirstButton: {fileID: 0}
+  diceFirstButton: {fileID: 0}
+  itemFirstButton: {fileID: 0}
+  playerSelectFirstButton: {fileID: 0}
+  mapSelectFirstButton: {fileID: 0}
+  directionFirstButton: {fileID: 0}
 --- !u!1 &67134559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,8 +1187,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27aa7d69a64812740914347fa51988be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberRolled: 0
+  numberRolled: {fileID: 0}
+  main: {fileID: 0}
+  D6: {fileID: 0}
+  D4: {fileID: 0}
   diceRolled: 0
+  diceThrown: 0
 --- !u!54 &228533163
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6042,6 +6055,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bef68dcc7a139854b8bda143540cb49a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberRolled: {fileID: 0}
+  bm: {fileID: 0}
   tilePoints:
   - {fileID: 1988735952}
   - {fileID: 276719416}
@@ -6063,10 +6078,14 @@ MonoBehaviour:
   - {fileID: 766884636}
   - {fileID: 467079732}
   - {fileID: 1010675357}
+  rightPoints: []
+  leftPoints: []
   player: {fileID: 1192028863}
   speed: 4
   reachDist: 0.1
-  reversePoints: []
+  index: 0
+  isMoving: 0
+  directionSpace: 0
 --- !u!114 &1192028869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6079,9 +6098,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd9885211d920f847ab87e2b496e99c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boardUIManager: {fileID: 0}
+  numberRolled: {fileID: 0}
   getawayVan: {fileID: 1908798781}
   diamond: {fileID: 1101791301}
   target: {fileID: 0}
+  canvas: {fileID: 0}
   itemList: 
   isMoonwalk: 0
   getawayVanIsActive: 0
@@ -6152,8 +6174,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27aa7d69a64812740914347fa51988be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberRolled: 0
+  numberRolled: {fileID: 0}
+  main: {fileID: 0}
+  D6: {fileID: 0}
+  D4: {fileID: 0}
   diceRolled: 0
+  diceThrown: 0
 --- !u!1 &1200998043
 GameObject:
   m_ObjectHideFlags: 0
@@ -9054,8 +9080,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27aa7d69a64812740914347fa51988be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberRolled: 0
+  numberRolled: {fileID: 0}
+  main: {fileID: 0}
+  D6: {fileID: 0}
+  D4: {fileID: 0}
   diceRolled: 0
+  diceThrown: 0
 --- !u!1 &1684592135
 GameObject:
   m_ObjectHideFlags: 0
@@ -10504,8 +10534,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27aa7d69a64812740914347fa51988be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberRolled: 0
+  numberRolled: {fileID: 0}
+  main: {fileID: 0}
+  D6: {fileID: 0}
+  D4: {fileID: 0}
   diceRolled: 0
+  diceThrown: 0
 --- !u!1 &1878554902
 GameObject:
   m_ObjectHideFlags: 0
@@ -10854,6 +10888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2b1ea44e3f93d4383ad81523954dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberRolled: {fileID: 0}
   moneyToSteal: 0
 --- !u!1 &1954334669
 GameObject:
@@ -11618,7 +11653,7 @@ GameObject:
   - component: {fileID: 2126569316}
   m_Layer: 0
   m_Name: Point (2) Item Point
-  m_TagString: ItemSpace
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -9,7 +9,6 @@ TagManager:
   - DiceObj
   - GetawayVan
   - Diamond
-  - ItemSpace
   - PlayerList
   - Player 1
   - Enemy
@@ -23,6 +22,8 @@ TagManager:
   - RConsole
   - Bomb
   - Conveyor
+  - Shop
+  - ItemBlob
   layers:
   - Default
   - TransparentFX

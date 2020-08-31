@@ -61,7 +61,6 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.sneakers = 0;
             }
-            turnController.turnOver = true;
         }
     }
 
@@ -80,7 +79,6 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.rocketShoes = 0;
             }
-            turnController.turnOver = true;
         }
     }
 
@@ -98,7 +96,6 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.moonwalkShoes = 0;
             }
-            turnController.turnOver = true;
         }
     }
 
@@ -116,7 +113,6 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.getawayVan = 0;
             }
-            turnController.turnOver = true;
         }
     }
 
@@ -159,7 +155,6 @@ public class PlayerAbilities : MonoBehaviour
             diceRoller.diceRolled = false;
             target.GetComponent<PlayerInfo>().bucks -= numberRolled.value;
             myPlayerInfo.bucks += numberRolled.value;
-            turnController.turnOver = true;
         }
     }
 
