@@ -41,7 +41,19 @@ public class BoardUIManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI sneakersLeft;
     [SerializeField]
+    TextMeshProUGUI rocketsLeft;
+    [SerializeField]
+    TextMeshProUGUI shovelsLeft;
+    [SerializeField]
     TextMeshProUGUI glovesLeft;
+    [SerializeField]
+    TextMeshProUGUI magnetsLeft;
+    [SerializeField]
+    TextMeshProUGUI iKnowAGuysLeft;
+    [SerializeField]
+    TextMeshProUGUI vansLeft;
+    [SerializeField]
+    TextMeshProUGUI ironBallsLeft;
 
     [Header("Script Referencing")]
     [SerializeField]
@@ -91,9 +103,14 @@ public class BoardUIManager : MonoBehaviour
 
         diamonds.text = pInfo.diamonds.ToString("00");
         bucksLeft.text = pInfo.bucks.ToString("00");
-        sneakersLeft.text = pInfo.sneakers.ToString("00");
-        glovesLeft.text = pInfo.thiefGloves.ToString("00");
-        
+        sneakersLeft.text = "Sneakers: " + pInfo.sneakers.ToString("00");
+        rocketsLeft.text = "Rocket Shoes: " + pInfo.rocketShoes.ToString("00");
+        shovelsLeft.text = "Shovels: " + pInfo.shovel.ToString("00");
+        glovesLeft.text = "Thief's Gloves: " + pInfo.thiefGloves.ToString("00");
+        magnetsLeft.text = "Money Magnets: " + pInfo.moneyMags.ToString("00");
+        iKnowAGuysLeft.text = "I Know A Guy: " + pInfo.iKnowAGuy.ToString("00");
+        vansLeft.text = "Getaway Vans: " + pInfo.getawayVan.ToString("00");
+        ironBallsLeft.text = "Iron Balls: " + pInfo.ironBall.ToString("00");
     }
 
     public void SetShopFirstButton()

@@ -16,9 +16,9 @@ public class TNTFactoryMovement : MonoBehaviour
 
     public int moveSpeed;
 
-    TNT block;
-
+    Animator myAnim;
     Rigidbody rb;
+    TNT block;
 
     string movementH;
     string movementV;
@@ -28,6 +28,7 @@ public class TNTFactoryMovement : MonoBehaviour
 
     void Start()
     {
+        myAnim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         GetPlayer();
     }
@@ -37,6 +38,15 @@ public class TNTFactoryMovement : MonoBehaviour
         Vector3 movement = new Vector3(Input.GetAxis(movementH), 0, Input.GetAxis(movementV));
 
         rb.AddForce(movement * moveSpeed);
+
+        if (movement != Vector3.zero)
+        {
+            myAnim.SetBool("isRunning", true);
+        }
+        else
+        {
+            myAnim.SetBool("isRunning", false);
+        }
 
         if (Input.GetButtonDown(drop))
         {

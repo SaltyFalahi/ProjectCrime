@@ -14,8 +14,8 @@ public class RafterPlayerController : MonoBehaviour
 
     public player type;
 
+    Animator myAnim;
     RafterManager rMan;
-
     Rigidbody rb;
 
     bool isDead = false;
@@ -42,6 +42,7 @@ public class RafterPlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        myAnim = GetComponent<Animator>();
         rMan = GameObject.FindGameObjectWithTag("MinigameManager").GetComponent<RafterManager>();
         rb = GetComponent<Rigidbody>();
         GetPlayer();
@@ -67,7 +68,18 @@ public class RafterPlayerController : MonoBehaviour
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
+                myAnim.SetBool("isJumping", true);
+
                 jumpCounter--;
+            }
+
+            if (movement != Vector3.zero)
+            {
+                myAnim.SetBool("isRunning", true);
+            }
+            else
+            {
+                myAnim.SetBool("isRunning", false);
             }
         }
     }
@@ -110,11 +122,13 @@ public class RafterPlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
+            myAnim.SetBool("isJumping", false);
             jumpCounter = 1;
         }
 
         if (collision.gameObject.CompareTag("Finish"))
         {
+            myAnim.SetBool("isLoser", true);
             jumpForce = 0;
             moveSpeed = 0;
         }

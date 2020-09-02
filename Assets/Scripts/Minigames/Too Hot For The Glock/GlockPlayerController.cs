@@ -8,7 +8,9 @@ public class GlockPlayerController : MonoBehaviour
     public bool isRed;
     public bool hasPressedButton;
 
+    Animator myAnim;
     Rigidbody rb;
+
     public enum player
     {
         P1,
@@ -33,6 +35,7 @@ public class GlockPlayerController : MonoBehaviour
     {
         GetPlayer();
 
+        myAnim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -42,6 +45,15 @@ public class GlockPlayerController : MonoBehaviour
         Vector3 movement = new Vector3(Input.GetAxis(movementH), 0, Input.GetAxis(movementV));
 
         rb.MovePosition(transform.position + movement * moveSpeed * Time.deltaTime);
+
+        if (movement != Vector3.zero)
+        {
+            myAnim.SetBool("isRunning", true);
+        }
+        else
+        {
+            myAnim.SetBool("isRunning", false);
+        }
 
         if (Input.GetButtonDown(switchButton) && atConsole)
         {

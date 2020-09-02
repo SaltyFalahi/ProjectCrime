@@ -18,6 +18,7 @@ public class HotPotatoMovement : MonoBehaviour
 
     public int moveSpeed;
 
+    Animator myAnim;
     Rigidbody rb;
 
     [SerializeField]
@@ -33,6 +34,7 @@ public class HotPotatoMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        myAnim = GetComponent<Animator>();
         GetPlayer();
     }
 
@@ -41,6 +43,15 @@ public class HotPotatoMovement : MonoBehaviour
         Vector3 movement = new Vector3(Input.GetAxis(movementH), 0, Input.GetAxis(movementV));
 
         rb.MovePosition(transform.position + movement * moveSpeed * Time.deltaTime);
+
+        if (movement != Vector3.zero)
+        {
+            myAnim.SetBool("isRunning", true);
+        }
+        else
+        {
+            myAnim.SetBool("isRunning", false);
+        }
 
         if (instance.player == gameObject)
         {

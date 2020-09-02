@@ -14,6 +14,7 @@ public class FallingPlayerController : MonoBehaviour
 
     public player type;
 
+    Animator myAnim;
     Rigidbody rb;
 
     [SerializeField]
@@ -31,6 +32,7 @@ public class FallingPlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        myAnim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         GetPlayer();
     }
@@ -42,9 +44,20 @@ public class FallingPlayerController : MonoBehaviour
 
         rb.MovePosition(transform.position + movement * moveSpeed * Time.deltaTime);
 
+        if (movement != Vector3.zero && !myAnim.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+        {
+            myAnim.SetBool("isRunning", true);
+        }
+        else
+        {
+            myAnim.SetBool("isRunning", false);
+        }
+
         if (Input.GetButtonDown(jump) && jumpCounter >= 1)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+            myAnim.SetBool("isJumping", true);
 
             jumpCounter--;
         }
@@ -84,6 +97,7 @@ public class FallingPlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
+            myAnim.SetBool("isJumping", false);
             jumpCounter = 1;
         }
     }

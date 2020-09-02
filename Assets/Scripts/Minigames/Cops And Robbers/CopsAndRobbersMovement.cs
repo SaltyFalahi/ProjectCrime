@@ -19,6 +19,7 @@ public class CopsAndRobbersMovement : MonoBehaviour
 
     public int moveSpeed;
 
+    Animator myAnim;
     Rigidbody rb;
 
     string movementH;
@@ -27,6 +28,7 @@ public class CopsAndRobbersMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        myAnim = GetComponent<Animator>();
         GetPlayer();
     }
 
@@ -41,6 +43,15 @@ public class CopsAndRobbersMovement : MonoBehaviour
         else
         {
             rb.AddForce(movement * moveSpeed);
+        }
+
+        if (movement != Vector3.zero)
+        {
+            myAnim.SetBool("isRunning", true);
+        }
+        else
+        {
+            myAnim.SetBool("isRunning", false);
         }
     }
 
