@@ -18,6 +18,8 @@ public class TurnController : MonoBehaviour
     PlayerList list;
 
     int coins = 9;
+    int turnCount;
+
     void Start()
     {
         list = GetComponent<PlayerList>();
@@ -25,6 +27,15 @@ public class TurnController : MonoBehaviour
 
     void Update()
     {
+        if (turnCount > 15)
+        {
+            standing.p1 = list.players[0].GetComponent<PlayerInfo>().diamonds;
+            standing.p2 = list.players[1].GetComponent<PlayerInfo>().diamonds;
+            standing.p3 = list.players[2].GetComponent<PlayerInfo>().diamonds;
+            standing.p4 = list.players[3].GetComponent<PlayerInfo>().diamonds;
+            SceneManager.LoadScene(2);
+        }
+
         switch (turn)
         {
             case 0:

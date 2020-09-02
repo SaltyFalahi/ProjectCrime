@@ -65,16 +65,16 @@ public class PrisonWallEscapeManager : MonoBehaviour
         int windowPicked3 = Random.Range(5, 9);
         int windowPicked4 = Random.Range(5, 9);
 
-        windowRow1[windowPicked1].GetComponent<Renderer>().material.color = Color.red;
+        windowRow1[windowPicked1].GetComponent<Renderer>().material.SetColor("Red",  Color.red);
         windowRow1[windowPicked1].GetComponent<BoxCollider>().enabled = true;
 
-        windowRow1[windowPicked2].GetComponent<Renderer>().material.color = Color.red;
+        windowRow1[windowPicked2].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow1[windowPicked2].GetComponent<BoxCollider>().enabled = true;
 
-        windowRow1[windowPicked3].GetComponent<Renderer>().material.color = Color.red;
+        windowRow1[windowPicked3].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow1[windowPicked3].GetComponent<BoxCollider>().enabled = true;
 
-        windowRow1[windowPicked4].GetComponent<Renderer>().material.color = Color.red;
+        windowRow1[windowPicked4].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow1[windowPicked4].GetComponent<BoxCollider>().enabled = true;
     }
 
@@ -85,16 +85,16 @@ public class PrisonWallEscapeManager : MonoBehaviour
         int windowPicked3 = Random.Range(5, 9);
         int windowPicked4 = Random.Range(5, 9);
 
-        windowRow2[windowPicked1].GetComponent<Renderer>().material.color = Color.red;
+        windowRow2[windowPicked1].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow2[windowPicked1].GetComponent<BoxCollider>().enabled = true;
 
-        windowRow2[windowPicked2].GetComponent<Renderer>().material.color = Color.red;
+        windowRow2[windowPicked2].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow2[windowPicked2].GetComponent<BoxCollider>().enabled = true;
 
-        windowRow2[windowPicked3].GetComponent<Renderer>().material.color = Color.red;
+        windowRow2[windowPicked3].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow2[windowPicked3].GetComponent<BoxCollider>().enabled = true;
 
-        windowRow2[windowPicked4].GetComponent<Renderer>().material.color = Color.red;
+        windowRow2[windowPicked4].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow2[windowPicked4].GetComponent<BoxCollider>().enabled = true;
     }
 
@@ -105,16 +105,16 @@ public class PrisonWallEscapeManager : MonoBehaviour
         int windowPicked3 = Random.Range(5, 9);
         int windowPicked4 = Random.Range(5, 9);
 
-        windowRow3[windowPicked1].GetComponent<Renderer>().material.color = Color.red;
+        windowRow3[windowPicked1].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow3[windowPicked1].GetComponent<BoxCollider>().enabled = true;
 
-        windowRow3[windowPicked2].GetComponent<Renderer>().material.color = Color.red;
+        windowRow3[windowPicked2].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow3[windowPicked2].GetComponent<BoxCollider>().enabled = true;
 
-        windowRow3[windowPicked3].GetComponent<Renderer>().material.color = Color.red;
+        windowRow3[windowPicked3].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow3[windowPicked3].GetComponent<BoxCollider>().enabled = true;
 
-        windowRow3[windowPicked4].GetComponent<Renderer>().material.color = Color.red;
+        windowRow3[windowPicked4].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow3[windowPicked4].GetComponent<BoxCollider>().enabled = true;
     }
 
@@ -126,19 +126,19 @@ public class PrisonWallEscapeManager : MonoBehaviour
         int windowPicked4 = Random.Range(5, 9);
         int windowPicked5 = Random.Range(5, 9);
 
-        windowRow4[windowPicked1].GetComponent<Renderer>().material.color = Color.red;
+        windowRow4[windowPicked1].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow4[windowPicked1].GetComponent<BoxCollider>().enabled = true;
 
-        windowRow4[windowPicked2].GetComponent<Renderer>().material.color = Color.red;
+        windowRow4[windowPicked2].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow4[windowPicked2].GetComponent<BoxCollider>().enabled = true;
 
-        windowRow4[windowPicked3].GetComponent<Renderer>().material.color = Color.red;
+        windowRow4[windowPicked3].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow4[windowPicked3].GetComponent<BoxCollider>().enabled = true;
 
-        windowRow4[windowPicked4].GetComponent<Renderer>().material.color = Color.red;
+        windowRow4[windowPicked4].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow4[windowPicked4].GetComponent<BoxCollider>().enabled = true;
 
-        windowRow4[windowPicked5].GetComponent<Renderer>().material.color = Color.red;
+        windowRow4[windowPicked5].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow4[windowPicked5].GetComponent<BoxCollider>().enabled = true;
     }
 
@@ -150,19 +150,19 @@ public class PrisonWallEscapeManager : MonoBehaviour
         int windowPicked4 = Random.Range(5, 9);
         int windowPicked5 = Random.Range(5, 9);
 
-        windowRow5[windowPicked1].GetComponent<Renderer>().material.color = Color.red;
+        windowRow5[windowPicked1].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow5[windowPicked1].GetComponent<BoxCollider>().enabled = true;
 
-        windowRow5[windowPicked2].GetComponent<Renderer>().material.color = Color.red;
+        windowRow5[windowPicked2].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow5[windowPicked2].GetComponent<BoxCollider>().enabled = true;
 
-        windowRow5[windowPicked3].GetComponent<Renderer>().material.color = Color.red;
+        windowRow5[windowPicked3].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow5[windowPicked3].GetComponent<BoxCollider>().enabled = true;
 
-        windowRow5[windowPicked4].GetComponent<Renderer>().material.color = Color.red;
+        windowRow5[windowPicked4].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow5[windowPicked4].GetComponent<BoxCollider>().enabled = true;
 
-        windowRow6[windowPicked5].GetComponent<Renderer>().material.color = Color.red;
+        windowRow6[windowPicked5].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow6[windowPicked5].GetComponent<BoxCollider>().enabled = true;
     }
 
@@ -174,19 +174,19 @@ public class PrisonWallEscapeManager : MonoBehaviour
         int windowPicked4 = Random.Range(5, 9);
         int windowPicked5 = Random.Range(5, 9);
 
-        windowRow6[windowPicked1].GetComponent<Renderer>().material.color = Color.red;
+        windowRow6[windowPicked1].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow6[windowPicked1].GetComponent<BoxCollider>().enabled = true;
 
-        windowRow6[windowPicked2].GetComponent<Renderer>().material.color = Color.red;
+        windowRow6[windowPicked2].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow6[windowPicked2].GetComponent<BoxCollider>().enabled = true;
 
-        windowRow6[windowPicked3].GetComponent<Renderer>().material.color = Color.red;
+        windowRow6[windowPicked3].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow6[windowPicked3].GetComponent<BoxCollider>().enabled = true;
 
-        windowRow6[windowPicked4].GetComponent<Renderer>().material.color = Color.red;
+        windowRow6[windowPicked4].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow6[windowPicked4].GetComponent<BoxCollider>().enabled = true;
 
-        windowRow6[windowPicked5].GetComponent<Renderer>().material.color = Color.red;
+        windowRow6[windowPicked5].GetComponent<Renderer>().material.SetColor("Red", Color.red);
         windowRow6[windowPicked5].GetComponent<BoxCollider>().enabled = true;
     }
 

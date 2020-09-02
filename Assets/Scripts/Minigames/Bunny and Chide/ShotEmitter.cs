@@ -6,6 +6,10 @@ using TMPro;
 
 public class ShotEmitter : MonoBehaviour
 {
+    public List<AudioClip> clips;
+    
+    public AudioClip shotClip;
+
     public bool done;
 
     AudioSource shotAudio;
@@ -22,7 +26,7 @@ public class ShotEmitter : MonoBehaviour
     {
         shotAudio = GetComponent<AudioSource>();
 
-        shotTimer = Random.Range(1, 6);
+        shotTimer = Random.Range(2, 6);
 
         shotsToFire = Random.Range(3, 11);
         shotsFired = shotsToFire;
@@ -47,8 +51,13 @@ public class ShotEmitter : MonoBehaviour
         {
             yield return new WaitForSeconds(time);
 
+            shotAudio.clip = clips[Random.Range(0, clips.Count)];
             shotAudio.Play();
-            shotsToFire--;
+
+            if(shotAudio.clip == shotClip)
+            {
+                shotsToFire--;
+            }
         }
     }
 

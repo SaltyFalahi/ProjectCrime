@@ -133,9 +133,9 @@ public class RafterPlayerController : MonoBehaviour
         if (other.CompareTag("Cop"))
         {
             isDead = true;
-            transform.position = rMan.placesList[rMan.rIndex].transform.position;
-            transform.rotation = rMan.placesList[rMan.rIndex].transform.rotation;
-            rMan.rIndex--;
+            transform.position = rMan.placesList[rMan.index].transform.position;
+            transform.rotation = rMan.placesList[rMan.index].transform.rotation;
+            rMan.index--;
         }
     }
 }

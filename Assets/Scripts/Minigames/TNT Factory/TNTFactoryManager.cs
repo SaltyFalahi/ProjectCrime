@@ -7,14 +7,12 @@ public class TNTFactoryManager : MonoBehaviour
 {
     public Standing standing;
 
-    public GameObject t;
-    public GameObject n;
-
     public List<Transform> pos;
 
     public List<TNTPlatform> right;
     public List<TNTPlatform> left;
 
+    public List<GameObject> spawns;
     public List<GameObject> rightTeam;
     public List<GameObject> leftTeam;
 
@@ -40,7 +38,8 @@ public class TNTFactoryManager : MonoBehaviour
 
         if (countdown <= 0)
         {
-            Spawn();
+            GameObject b = Instantiate(spawns[Random.Range(0, spawns.Count)]);
+            b.transform.position = pos[Random.Range(0, pos.Count)].position;
             countdown = timer;
         }
     }
@@ -127,22 +126,6 @@ public class TNTFactoryManager : MonoBehaviour
                 }
             }
             SceneManager.LoadScene(1);
-        }
-    }
-
-    void Spawn()
-    {
-        int random = Random.Range(0, 2);
-        
-        if (random > 0)
-        {
-            GameObject b = Instantiate(n);
-            b.transform.position = pos[Random.Range(0, pos.Count)].position;
-        }
-        else
-        {
-            GameObject b = Instantiate(t);
-            b.transform.position = pos[Random.Range(0, pos.Count)].position;
         }
     }
 }

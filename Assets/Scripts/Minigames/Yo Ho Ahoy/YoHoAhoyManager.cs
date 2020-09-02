@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class YoHoAhoyManager : MonoBehaviour
 {
@@ -14,7 +15,6 @@ public class YoHoAhoyManager : MonoBehaviour
     public bool hidingRound = true;
     public bool pickingRound = false;
     public bool cooldownRound = false;
-    //public bool allHidersDone = false;
     
     public int playersPicking = 3;
     public int picksLeft = 3;
@@ -86,6 +86,7 @@ public class YoHoAhoyManager : MonoBehaviour
             standing.p2 = 0;
             standing.p3 = 0;
             standing.p4 = 0;
+            SceneManager.LoadScene(1);
         }
 
         if (picksLeft <= 0 && playersCaught.Count != 3)
@@ -96,6 +97,7 @@ public class YoHoAhoyManager : MonoBehaviour
             standing.p2 = 1;
             standing.p3 = 1;
             standing.p4 = 1;
+            SceneManager.LoadScene(1);
         }
     }
 }

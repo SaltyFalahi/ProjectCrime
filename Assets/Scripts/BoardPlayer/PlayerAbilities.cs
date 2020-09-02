@@ -50,7 +50,6 @@ public class PlayerAbilities : MonoBehaviour
     {
         if (myPlayerInfo.sneakers >= minItems)
         {
-            diceRoller.diceRolled = true;
             diceRoller.Roll2D6();
 
             myPlayerInfo.itemsLeft--;
@@ -61,7 +60,6 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.sneakers = 0;
             }
-            turnController.turnOver = true;
         }
     }
 
@@ -69,7 +67,6 @@ public class PlayerAbilities : MonoBehaviour
     {
         if (myPlayerInfo.rocketShoes >= minItems)
         {
-            diceRoller.diceRolled = true;
             diceRoller.Roll3D6();
 
             myPlayerInfo.itemsLeft--;
@@ -80,7 +77,6 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.rocketShoes = 0;
             }
-            turnController.turnOver = true;
         }
     }
 
@@ -98,7 +94,6 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.moonwalkShoes = 0;
             }
-            turnController.turnOver = true;
         }
     }
 
@@ -116,7 +111,6 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.getawayVan = 0;
             }
-            turnController.turnOver = true;
         }
     }
 
@@ -133,7 +127,6 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.shovel = 0;
             }
-            turnController.turnOver = true;
         }
     }
 
@@ -159,7 +152,6 @@ public class PlayerAbilities : MonoBehaviour
             diceRoller.diceRolled = false;
             target.GetComponent<PlayerInfo>().bucks -= numberRolled.value;
             myPlayerInfo.bucks += numberRolled.value;
-            turnController.turnOver = true;
         }
     }
 
@@ -216,7 +208,6 @@ public class PlayerAbilities : MonoBehaviour
                     target.GetComponent<PlayerInfo>().ironBall--;
                     break;
             }
-            turnController.turnOver = true;
         }
     }
 
@@ -236,7 +227,6 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.iKnowAGuy = 0;
             }
-            turnController.turnOver = true;
         }        
     }
 
@@ -255,7 +245,6 @@ public class PlayerAbilities : MonoBehaviour
             {
                 myPlayerInfo.ironBall = 0;
             }
-            turnController.turnOver = true;
         }
     }
 

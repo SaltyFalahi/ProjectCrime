@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1093,7 +1093,7 @@ MonoBehaviour:
   type: 0
   cops: 1
   copsWin: 0
-  moveSpeed: 15
+  moveSpeed: 35
 --- !u!1 &612302822 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 03b3766662d4e8a41ac20dd056cd2163,
@@ -1922,7 +1922,7 @@ MonoBehaviour:
   type: 1
   cops: 1
   copsWin: 0
-  moveSpeed: 40
+  moveSpeed: 35
 --- !u!1001 &1252740508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2561,7 +2561,7 @@ MonoBehaviour:
   type: 2
   cops: 1
   copsWin: 0
-  moveSpeed: 40
+  moveSpeed: 35
 --- !u!1001 &1650190869
 PrefabInstance:
   m_ObjectHideFlags: 0

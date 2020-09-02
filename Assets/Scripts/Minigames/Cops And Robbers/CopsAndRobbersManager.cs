@@ -31,7 +31,6 @@ public class CopsAndRobbersManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(count);
         for (int i = 0; i < cARMCops.Count; i++)
         {
             if (cARMCops[i].GetComponent<CopsAndRobbersMovement>().copsWin)

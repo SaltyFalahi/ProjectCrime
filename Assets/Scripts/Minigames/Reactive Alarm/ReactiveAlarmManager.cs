@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ReactiveAlarmManager : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class ReactiveAlarmManager : MonoBehaviour
             standing.p2 = players[1].score;
             //standing.p3 = players[2].score;
             //standing.p4 = players[3].score;
+            SceneManager.LoadScene(1);
         }
 
         countdown -= Time.deltaTime;

@@ -16,6 +16,8 @@ public class TNTFactoryMovement : MonoBehaviour
 
     public int moveSpeed;
 
+    public bool bombed;
+
     TNT block;
 
     Rigidbody rb;
@@ -34,16 +36,19 @@ public class TNTFactoryMovement : MonoBehaviour
 
     void Update()
     {
-        Vector3 movement = new Vector3(Input.GetAxis(movementH), 0, Input.GetAxis(movementV));
-
-        rb.AddForce(movement * moveSpeed);
-
-        if (Input.GetButtonDown(drop))
+        if (!bombed)
         {
-            block.parent = null;
-            block.GetComponent<Rigidbody>().useGravity = true;
-            block.isBeingCarried = false;
-            carrying = false;
+            Vector3 movement = new Vector3(Input.GetAxis(movementH), 0, Input.GetAxis(movementV));
+
+            rb.AddForce(movement * moveSpeed);
+
+            if (Input.GetButtonDown(drop))
+            {
+                block.parent = null;
+                block.GetComponent<Rigidbody>().useGravity = true;
+                block.isBeingCarried = false;
+                carrying = false;
+            }
         }
     }
 

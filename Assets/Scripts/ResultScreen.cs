@@ -50,9 +50,15 @@ public class ResultScreen : MonoBehaviour
         text.text = ("Rankings:" + "\n" + "\n" + players[0].name + "\n" + "\n" + players[1].name);
     }
 
-    public void Button()
+    public void ContinueButton()
     {
         SceneManager.LoadScene(0);
+        bc.loaded = false;
+    }
+
+    public void MainMenuButton()
+    {
+        SceneManager.LoadScene(2);
         bc.loaded = false;
     }
 }

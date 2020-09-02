@@ -1038,9 +1038,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d8bc9e265d08e499cec6d53c505ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  standing: {fileID: 11400000, guid: 4b33e6842e48aa04297d2ec563ab1cc4, type: 2}
+  rightTeam:
+  - {fileID: 665644395}
+  - {fileID: 475276689}
+  leftTeam:
+  - {fileID: 567689986}
+  - {fileID: 535419532}
+  lChancesLeft: 5
+  rChancesLeft: 5
   timer: 0
-  lChancesLeft: 0
-  rChancesLeft: 0
 --- !u!4 &584184365
 Transform:
   m_ObjectHideFlags: 0
