@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class PlayerColliders : MonoBehaviour
 {
+    [SerializeField]
+    BoardUIManager bUIM;
+
     PlayerInfo myPlayerInfo;
     PlayerAbilities playerAbilities;
+
+    float timer = 2.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,18 +22,12 @@ public class PlayerColliders : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(timer);
     }
 
     void OnCollisionEnter(Collision objCol)
     {
-        if (objCol.gameObject.tag.Equals("Diamond"))
-        {
-            myPlayerInfo.diamonds++;
-            Destroy(objCol.gameObject);
-        }
-
-        if (objCol.gameObject.tag.Equals("ItemSpace"))
+        if (objCol.gameObject.tag.Equals("ItemBlob"))
         {
             switch (Random.Range(1, 10))
             {
@@ -80,6 +79,36 @@ public class PlayerColliders : MonoBehaviour
                 default:
                     Debug.Log("No Item");
                     break;
+            }
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Shop"))
+        {
+            timer = 2.5f;
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Shop") && !bUIM.mainPanel.activeInHierarchy)
+        {
+            timer -= Time.deltaTime;
+
+            if (timer <= 0 && !bUIM.itemShopPanel.activeInHierarchy)
+            {
+                bUIM.mainPanel.SetActive(false);
+                bUIM.dicePanel.SetActive(false);
+                bUIM.itemsPanel.SetActive(false);
+                bUIM.itemShopPanel.SetActive(true);
+                bUIM.playerSelectPanel.SetActive(false);
+                bUIM.mapSelectionPanel.SetActive(false);
+                bUIM.directionPanel.SetActive(false);
+                bUIM.sidemapControlPanel.SetActive(false);
+
+                bUIM.SetShopFirstButton();
             }
         }
     }

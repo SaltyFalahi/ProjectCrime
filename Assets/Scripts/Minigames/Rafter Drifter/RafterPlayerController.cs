@@ -14,10 +14,8 @@ public class RafterPlayerController : MonoBehaviour
 
     public player type;
 
-    public Standing standing;
-
+    Animator myAnim;
     RafterManager rMan;
-
     Rigidbody rb;
 
     bool isDead = false;
@@ -41,13 +39,16 @@ public class RafterPlayerController : MonoBehaviour
     string movementV;
     string rotateH;
 
+    // Start is called before the first frame update
     void Start()
     {
+        myAnim = GetComponent<Animator>();
         rMan = GameObject.FindGameObjectWithTag("MinigameManager").GetComponent<RafterManager>();
         rb = GetComponent<Rigidbody>();
         GetPlayer();
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (!isDead)
@@ -67,7 +68,18 @@ public class RafterPlayerController : MonoBehaviour
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
+                myAnim.SetBool("isJumping", true);
+
                 jumpCounter--;
+            }
+
+            if (movement != Vector3.zero)
+            {
+                myAnim.SetBool("isRunning", true);
+            }
+            else
+            {
+                myAnim.SetBool("isRunning", false);
             }
         }
     }
@@ -110,11 +122,13 @@ public class RafterPlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
+            myAnim.SetBool("isJumping", false);
             jumpCounter = 1;
         }
 
         if (collision.gameObject.CompareTag("Finish"))
         {
+            myAnim.SetBool("isLoser", true);
             jumpForce = 0;
             moveSpeed = 0;
         }
@@ -128,14 +142,6 @@ public class RafterPlayerController : MonoBehaviour
             transform.position = rMan.placesList[rMan.index].transform.position;
             transform.rotation = rMan.placesList[rMan.index].transform.rotation;
             rMan.index++;
-        }
-
-        if (other.CompareTag("Cop"))
-        {
-            isDead = true;
-            transform.position = rMan.placesList[rMan.index].transform.position;
-            transform.rotation = rMan.placesList[rMan.index].transform.rotation;
-            rMan.index--;
         }
     }
 }

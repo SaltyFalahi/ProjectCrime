@@ -4,23 +4,35 @@ using UnityEngine;
 
 public class PrisonWallPlayer : MonoBehaviour
 {
+    public enum player
+    {
+        P1,
+        P2,
+        P3,
+        P4
+    }
+
+    public player type;
+
     public float vRappelSpeed;
     public float hRappelSpeed;
 
     public int moveSpeed;
 
+    Animator myAnim;
     PrisonWallEscapeManager pWEP;
-
     Rigidbody rb;
 
-    string movementH = "P1Horizontal";
+    string movementH;
 
     // Start is called before the first frame update
     void Start()
     {
+        myAnim = GetComponent<Animator>();
         pWEP = GameObject.FindGameObjectWithTag("MinigameManager").GetComponent<PrisonWallEscapeManager>();
-
         rb = GetComponent<Rigidbody>();
+
+        GetPlayer();
     }
 
     // Update is called once per frame
@@ -50,6 +62,28 @@ public class PrisonWallPlayer : MonoBehaviour
             moveSpeed = 0;
 
             pWEP.PlayerWin();
+        }
+    }
+
+    void GetPlayer()
+    {
+        switch (type)
+        {
+            case player.P1:
+                movementH = "P1Horizontal";
+                break;
+
+            case player.P2:
+                movementH = "P2Horizontal";
+                break;
+
+            case player.P3:
+                movementH = "P3Horizontal";
+                break;
+
+            case player.P4:
+                movementH = "P4Horizontal";
+                break;
         }
     }
 }

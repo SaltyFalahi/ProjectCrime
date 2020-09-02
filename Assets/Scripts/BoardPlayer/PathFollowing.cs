@@ -24,6 +24,7 @@ public class PathFollowing : MonoBehaviour
     public bool isMoving;
     public bool directionSpace;
 
+    Animator myAnim;
     DiceRoller diceRoller;
     PlayerAbilities playerAbilities;
     TurnController turnController;
@@ -31,6 +32,7 @@ public class PathFollowing : MonoBehaviour
     void Start()
     {
         diceRoller = GetComponent<DiceRoller>();
+        myAnim = GetComponentInChildren<Animator>();
         playerAbilities = GetComponent<PlayerAbilities>();
         turnController = GameObject.FindGameObjectWithTag("PlayerList").GetComponent<TurnController>();
     }
@@ -57,14 +59,21 @@ public class PathFollowing : MonoBehaviour
     {
         float dist = Vector3.Distance(tilePoints[index].position, transform.position);
 
+        Vector3 dir = tilePoints[index].position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 5).eulerAngles;
+        transform.rotation = Quaternion.Euler(0, rotation.y, 0);
+
         if (!directionSpace)
         {
             if (spacesToMove > 0)
             {
+                myAnim.SetBool("isRunning", true);
                 transform.position = Vector3.MoveTowards(transform.position, tilePoints[index].position, Time.deltaTime * speed);
             }
             else
             {
+                myAnim.SetBool("isRunning", false);
                 diceRoller.diceRolled = false;
                 playerAbilities.getawayVanIsActive = false;
                 turnController.turnOver = true;
