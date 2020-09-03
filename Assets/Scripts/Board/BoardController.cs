@@ -19,6 +19,7 @@ public class BoardController : MonoBehaviour
     public int turnCount;
 
     public bool loaded = true;
+    public bool minigames;
 
     private void Awake()
     {
@@ -26,16 +27,12 @@ public class BoardController : MonoBehaviour
         {
             _instance = this;
             DontDestroyOnLoad(gameObject);
+            ResetScriptableObjects();
         }
         else
         {
             Destroy(gameObject);
         }
-    }
-
-    void Start()
-    {
-        ResetScriptableObjects();
     }
 
     void Update()
@@ -46,7 +43,7 @@ public class BoardController : MonoBehaviour
             tc = GameObject.FindGameObjectWithTag("PlayerList").GetComponent<TurnController>();
         }
 
-        if (!loaded)
+        if (!loaded && turnCount < tc.totalTurns)
         {
             bd.LoadPlayers();
             tc.turn = 0;

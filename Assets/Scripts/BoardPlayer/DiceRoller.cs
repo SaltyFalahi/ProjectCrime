@@ -58,13 +58,18 @@ public class DiceRoller : MonoBehaviour
         d1.transform.position = main.transform.position;
         d2.transform.position = main.transform.position;
 
+        d1.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
+        d2.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
+
         float dirX = Random.Range(0, 500);
         float dirY = Random.Range(0, 500);
         float dirZ = Random.Range(0, 500);
 
-        d1.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
-        d2.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
         d1.GetComponent<Rigidbody>().AddTorque(dirX, dirY, dirZ);
+
+        dirX = Random.Range(0, 500);
+        dirY = Random.Range(0, 500);
+        dirZ = Random.Range(0, 500);
         d2.GetComponent<Rigidbody>().AddTorque(dirX, dirY, dirZ);
 
         StartCoroutine(Timer(5, d1, d2));
@@ -79,15 +84,26 @@ public class DiceRoller : MonoBehaviour
         d2.transform.position = main.transform.position;
         d3.transform.position = main.transform.position;
 
+        d1.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
+        d2.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
+        d3.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
+
         float dirX = Random.Range(0, 500);
         float dirY = Random.Range(0, 500);
         float dirZ = Random.Range(0, 500);
 
-        d1.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
-        d2.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
-        d3.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
         d1.GetComponent<Rigidbody>().AddTorque(dirX, dirY, dirZ);
+
+        dirX = Random.Range(0, 500);
+        dirY = Random.Range(0, 500);
+        dirZ = Random.Range(0, 500);
+
         d2.GetComponent<Rigidbody>().AddTorque(dirX, dirY, dirZ);
+
+        dirX = Random.Range(0, 500);
+        dirY = Random.Range(0, 500);
+        dirZ = Random.Range(0, 500);
+
         d3.GetComponent<Rigidbody>().AddTorque(dirX, dirY, dirZ);
 
         StartCoroutine(Timer(5, d1, d2, d3));

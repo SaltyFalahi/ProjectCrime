@@ -12,6 +12,7 @@ public class TurnController : MonoBehaviour
     public List<Scene> minigames;
 
     public int turn = 1;
+    public int totalTurns = 15;
 
     public bool turnOver;
 
@@ -25,17 +26,21 @@ public class TurnController : MonoBehaviour
     {
         list = GetComponent<PlayerList>();
         bc = GameObject.FindGameObjectWithTag("BoardController").GetComponent<BoardController>();
+        if (!bc.loaded)
+        {
+            turn = 0;
+        }
     }
 
     void Update()
     {
-        if (bc.turnCount > 0)
+        if (bc.turnCount >= totalTurns)
         {
             standing.p1 = list.players[0].GetComponent<PlayerInfo>().diamonds;
             standing.p2 = list.players[1].GetComponent<PlayerInfo>().diamonds;
-            standing.p3 = list.players[2].GetComponent<PlayerInfo>().diamonds;
-            standing.p4 = list.players[3].GetComponent<PlayerInfo>().diamonds;
-            SceneManager.LoadScene(2);
+            //standing.p3 = list.players[2].GetComponent<PlayerInfo>().diamonds;
+            //standing.p4 = list.players[3].GetComponent<PlayerInfo>().diamonds;
+            SceneManager.LoadScene(3);
         }
 
         switch (turn)
