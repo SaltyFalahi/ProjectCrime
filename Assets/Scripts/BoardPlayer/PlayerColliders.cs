@@ -19,12 +19,6 @@ public class PlayerColliders : MonoBehaviour
         playerAbilities = GetComponent<PlayerAbilities>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log(timer);
-    }
-
     void OnCollisionEnter(Collision objCol)
     {
         if (objCol.gameObject.tag.Equals("ItemBlob"))

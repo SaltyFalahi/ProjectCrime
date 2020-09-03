@@ -14,6 +14,10 @@ public class BoardController : MonoBehaviour
 
     public BoardData bd;
 
+    public TurnController tc;
+
+    public int turnCount;
+
     public bool loaded = true;
 
     private void Awake()
@@ -39,11 +43,13 @@ public class BoardController : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             bd = GameObject.FindGameObjectWithTag("BoardData").GetComponent<BoardData>();
+            tc = GameObject.FindGameObjectWithTag("PlayerList").GetComponent<TurnController>();
         }
 
         if (!loaded)
         {
             bd.LoadPlayers();
+            tc.turn = 0;
             loaded = true;
         }
     }

@@ -28,7 +28,7 @@ public class CopsAndRobbersMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        myAnim = GetComponent<Animator>();
+        myAnim = GetComponentInChildren<Animator>();
         GetPlayer();
     }
 

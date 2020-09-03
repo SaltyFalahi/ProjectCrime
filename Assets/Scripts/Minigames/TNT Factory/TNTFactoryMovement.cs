@@ -16,6 +16,8 @@ public class TNTFactoryMovement : MonoBehaviour
 
     public int moveSpeed;
 
+    public bool bombed;
+
     Animator myAnim;
     Rigidbody rb;
     TNT block;
@@ -35,25 +37,28 @@ public class TNTFactoryMovement : MonoBehaviour
 
     void Update()
     {
-        Vector3 movement = new Vector3(Input.GetAxis(movementH), 0, Input.GetAxis(movementV));
-
-        rb.AddForce(movement * moveSpeed);
-
-        if (movement != Vector3.zero)
+        if (bombed)
         {
-            myAnim.SetBool("isRunning", true);
-        }
-        else
-        {
-            myAnim.SetBool("isRunning", false);
-        }
+            Vector3 movement = new Vector3(Input.GetAxis(movementH), 0, Input.GetAxis(movementV));
 
-        if (Input.GetButtonDown(drop))
-        {
-            block.parent = null;
-            block.GetComponent<Rigidbody>().useGravity = true;
-            block.isBeingCarried = false;
-            carrying = false;
+            rb.AddForce(movement * moveSpeed);
+
+            if (movement != Vector3.zero)
+            {
+                myAnim.SetBool("isRunning", true);
+            }
+            else
+            {
+                myAnim.SetBool("isRunning", false);
+            }
+
+            if (Input.GetButtonDown(drop))
+            {
+                block.parent = null;
+                block.GetComponent<Rigidbody>().useGravity = true;
+                block.isBeingCarried = false;
+                carrying = false;
+            }
         }
     }
 

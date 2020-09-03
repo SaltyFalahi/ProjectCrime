@@ -24,6 +24,7 @@ TagManager:
   - Conveyor
   - Shop
   - ItemBlob
+  - ItemSpace
   layers:
   - Default
   - TransparentFX
@@ -33,8 +34,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Player
+  - Dice
   - 
   - 
   - 

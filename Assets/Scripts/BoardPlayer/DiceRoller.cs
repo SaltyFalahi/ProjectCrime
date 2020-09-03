@@ -38,7 +38,6 @@ public class DiceRoller : MonoBehaviour
         {
             RollD4();
         }
-
         d1 = Instantiate(D6);
         d1.transform.position = main.transform.position;
 

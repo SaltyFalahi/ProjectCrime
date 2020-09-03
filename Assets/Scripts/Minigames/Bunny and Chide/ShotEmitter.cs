@@ -30,7 +30,6 @@ public class ShotEmitter : MonoBehaviour
 
         shotsToFire = Random.Range(3, 11);
         shotsFired = shotsToFire;
-        Debug.Log(shotsFired);
 
         coroutine = StartShots(shotTimer);
 

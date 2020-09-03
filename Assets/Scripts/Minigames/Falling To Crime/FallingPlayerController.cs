@@ -14,6 +14,8 @@ public class FallingPlayerController : MonoBehaviour
 
     public player type;
 
+    public int score;
+
     Animator myAnim;
     Rigidbody rb;
 
@@ -29,7 +31,6 @@ public class FallingPlayerController : MonoBehaviour
     string movementH;
     string movementV;
 
-    // Start is called before the first frame update
     void Start()
     {
         myAnim = GetComponent<Animator>();
@@ -37,7 +38,6 @@ public class FallingPlayerController : MonoBehaviour
         GetPlayer();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 movement = new Vector3(Input.GetAxis(movementH), 0, Input.GetAxis(movementV));
