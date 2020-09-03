@@ -73,7 +73,7 @@ public class ResultScreen : MonoBehaviour
 
     public void ContinueButton()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
         bc.loaded = false;
     }
 }

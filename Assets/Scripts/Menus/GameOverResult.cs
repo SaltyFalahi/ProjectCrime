@@ -71,7 +71,7 @@ public class GameOverResult : MonoBehaviour
 
     public void MainMenuButton()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(0);
         bc.loaded = false;
     }
 }

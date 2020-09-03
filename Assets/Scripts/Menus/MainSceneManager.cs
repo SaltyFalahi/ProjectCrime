@@ -7,12 +7,12 @@ public class MainSceneManager : MonoBehaviour
 {
     public void LoadLevel1()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
     }
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(0);
     }
 
     public void QuitGame()
