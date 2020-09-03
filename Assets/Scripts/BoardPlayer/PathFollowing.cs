@@ -57,6 +57,11 @@ public class PathFollowing : MonoBehaviour
 
     void MovePlayer(int spacesToMove)
     {
+        if (index >= tilePoints.Count - 1)
+        {
+            index = 0;
+        }
+
         float dist = Vector3.Distance(tilePoints[index].position, transform.position);
 
         Vector3 dir = tilePoints[index].position - transform.position;

@@ -17,13 +17,13 @@ public class PlayerControls : MonoBehaviour
     public player type;
 
     public float score;
-    public float pumpLimit = 3;
+    public float pumpLimit = 1;
 
     public bool isPopped = false;
 
-    float pumpScale = 0.025f;
-    float pumpMid = 2.5f;
-    float pumpQuart = 1.5f;
+    float pumpScale = 0.005f;
+    float pumpMid = 0.5f;
+    float pumpQuart = 0.25f;
 
     string pump;
 
@@ -44,7 +44,7 @@ public class PlayerControls : MonoBehaviour
 
             if (balloon.transform.localScale.x >= pumpMid)
             {
-                pumpScale = 0.02f;
+                pumpScale = 0.0025f;
             }
 
             if (balloon.transform.localScale.x >= pumpQuart && balloon.transform.position.y <= 4)

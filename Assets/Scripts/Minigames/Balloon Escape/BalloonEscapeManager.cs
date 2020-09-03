@@ -35,8 +35,9 @@ public class BalloonEscapeManager : MonoBehaviour
         {
             countdown = 0;
 
-            standings.p1 = (int)players[0].score;
-            standings.p2 = (int)players[1].score;
+            standings.p1 = players[0].score * 10;
+            standings.p2 = players[1].score * 10;
+            Debug.Log(standings.p1);
             //standings.p3 = (int)players[2].score;
             //standings.p4 = (int)players[3].score;
 

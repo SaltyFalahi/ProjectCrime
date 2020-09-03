@@ -7,8 +7,8 @@ public class Standing : ScriptableObject
 {
     public List<PlayerStanding> standings;
 
-    public int p1;
-    public int p2;
-    public int p3;
-    public int p4;
+    public float p1;
+    public float p2;
+    public float p3;
+    public float p4;
 }

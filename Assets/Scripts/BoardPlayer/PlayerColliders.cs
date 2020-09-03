@@ -19,9 +19,9 @@ public class PlayerColliders : MonoBehaviour
         playerAbilities = GetComponent<PlayerAbilities>();
     }
 
-    void OnCollisionEnter(Collision objCol)
+    private void OnTriggerEnter(Collider other)
     {
-        if (objCol.gameObject.tag.Equals("ItemBlob"))
+        if (other.gameObject.tag.Equals("ItemBlob"))
         {
             switch (Random.Range(1, 10))
             {

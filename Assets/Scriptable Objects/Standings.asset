@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Standings
   m_EditorClassIdentifier: 
   standings:
-  - score: 9
-    name: Player 2
-  - score: 5
+  - obj: {fileID: 0}
+    score: 6.2999988
     name: Player 1
+  - obj: {fileID: 0}
+    score: 0
+    name: Player 2
   p1: 0
   p2: 0
   p3: 0
