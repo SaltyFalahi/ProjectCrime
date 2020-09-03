@@ -37,7 +37,7 @@ public class TNTFactoryMovement : MonoBehaviour
 
     void Update()
     {
-        if (bombed)
+        if (!bombed)
         {
             Vector3 movement = new Vector3(Input.GetAxis(movementH), 0, Input.GetAxis(movementV));
 

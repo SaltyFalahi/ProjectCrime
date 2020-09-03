@@ -83,7 +83,7 @@ public class CopsAndRobbersMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player 1"))
+        if (other.CompareTag("Robber"))
         {
             moveSpeed = 0;
 

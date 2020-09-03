@@ -1,20 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HotPotatoManager : MonoBehaviour
 {
+    public Standing standing;
+
     public List<GameObject> players;
 
     public GameObject bomb;
     public GameObject player;
 
     public float timer;
+    public float cooldownTimer;
 
     [SerializeField]
     float bombOffset;
-
     float countdown;
+    float cooldownCountdown;
+
+    int score = 0;
 
     void Start()
     {
@@ -25,16 +31,40 @@ public class HotPotatoManager : MonoBehaviour
     void Update()
     {
         countdown -= Time.deltaTime;
+        cooldownCountdown -= Time.deltaTime;
 
         if (countdown <= 0)
         {
+            switch (player.name)
+            {
+                case "Player 1":
+                    standing.p1 = score;
+                    score++;
+                    break;
+
+                case "Player 2":
+                    standing.p2 = score;
+                    score++;
+                    break;
+
+                case "Player 3":
+                    standing.p3 = score;
+                    score++;
+                    break;
+
+                case "Player 4":
+                    standing.p4 = score;
+                    score++;
+                    break;
+            }
+
             players.Remove(player);
             Destroy(player);
             SpawnBomb();
         }
 
-        bomb.transform.position = transform.forward + new Vector3(player.transform.position.x, 
-            player.transform.position.y, player.transform.position.z + bombOffset);
+        bomb.transform.position = new Vector3(player.transform.position.x, 
+            player.transform.position.y + bombOffset, player.transform.position.z);
     }
 
     void SpawnBomb()
@@ -46,16 +76,16 @@ public class HotPotatoManager : MonoBehaviour
         }
         else
         {
-            player = players[0];
-
-            countdown = 100;
-
-            Debug.Log(player.name + " Won");
+            SceneManager.LoadScene(1);
         }
     }
 
     public void PassBomb(GameObject obj)
     {
-        player = obj;
+        if (cooldownCountdown <= 0)
+        {
+            player = obj;
+            cooldownCountdown = cooldownTimer;
+        }
     }
 }

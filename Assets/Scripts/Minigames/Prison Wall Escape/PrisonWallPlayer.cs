@@ -14,14 +14,19 @@ public class PrisonWallPlayer : MonoBehaviour
 
     public player type;
 
-    public float vRappelSpeed;
-    public float hRappelSpeed;
-
-    public int moveSpeed;
-
     Animator myAnim;
     PrisonWallEscapeManager pWEP;
     Rigidbody rb;
+
+    [SerializeField]
+    float vRappelSpeed;
+    [SerializeField]
+    float hRappelSpeed;
+    [SerializeField]
+    float acceleration;
+
+    [SerializeField]
+    int moveSpeed;
 
     string movementH;
 
@@ -41,11 +46,16 @@ public class PrisonWallPlayer : MonoBehaviour
         Vector3 movement = new Vector3(Input.GetAxis(movementH) * hRappelSpeed, -vRappelSpeed, 0);
 
         rb.MovePosition(transform.position + movement * moveSpeed * Time.deltaTime);
+
+        if (pWEP.distanceToGround <= pWEP.speedPoint)
+        {
+            vRappelSpeed += acceleration * Time.deltaTime;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Cop"))
         {
             moveSpeed = 0;
 

@@ -61,6 +61,7 @@ public class HotPotatoMovement : MonoBehaviour
         }
         else
         {
+            canReceiveBomb = true;
             hasGivenBomb = true;
             hasBomb = false;
         }

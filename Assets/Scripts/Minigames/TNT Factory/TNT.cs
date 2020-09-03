@@ -17,8 +17,8 @@ public class TNT : MonoBehaviour
     {
         if (parent)
         {
-            transform.position = new Vector3(parent.GetChild(0).transform.position.x, parent.GetChild(0).transform.position.y + 1,
-                parent.GetChild(0).transform.position.z + 1.6f);
+            transform.position = new Vector3(parent.GetChild(0).transform.position.x + 1.6f, parent.GetChild(0).transform.position.y + 1,
+                parent.GetChild(0).transform.position.z);
         }
     }
 }

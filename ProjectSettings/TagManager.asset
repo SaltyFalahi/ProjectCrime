@@ -10,7 +10,6 @@ TagManager:
   - GetawayVan
   - Diamond
   - PlayerList
-  - Player 1
   - Enemy
   - MinigameManager
   - Cop
@@ -25,6 +24,7 @@ TagManager:
   - Shop
   - ItemBlob
   - ItemSpace
+  - Robber
   layers:
   - Default
   - TransparentFX

@@ -24,7 +24,7 @@ public class CopsAndRobbersManager : MonoBehaviour
     {
         cARMCops.AddRange(GameObject.FindGameObjectsWithTag("Cop"));
 
-        cARMCriminal = GameObject.FindGameObjectWithTag("Player 1").GetComponent<CopsAndRobbersMovement>();
+        cARMCriminal = GameObject.FindGameObjectWithTag("Robber").GetComponent<CopsAndRobbersMovement>();
 
         countdown = timer;
     }
